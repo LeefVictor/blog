@@ -240,7 +240,7 @@
 
     
         <meta property="article:published_time" content="Tue Apr 27 2021 16:02:14 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jul 27 2021 17:05:36 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jul 27 2021 17:59:36 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -263,7 +263,7 @@
     "mainEntityOfPage": "https://leefvictor.github.io/2021/04/27/dynamic-code/index.html",
     "headline": "请求链路统计",
     "datePublished": "Tue Apr 27 2021 16:02:14 GMT+0800",
-    "dateModified": "Tue Jul 27 2021 17:05:36 GMT+0800",
+    "dateModified": "Tue Jul 27 2021 17:59:36 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -482,8 +482,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="撸个玩具车版的请求链路统计"><a href="#撸个玩具车版的请求链路统计" class="headerlink" title="撸个玩具车版的请求链路统计"></a>撸个玩具车版的请求链路统计</h1><p>对于一个web服务， 当要求统计当前请求的整个方法链路的调用次数和各个方法的耗时， 该如何做？  </p>
-<p>通常， 首先想到的就是 aop， 切面针对注解或者具体方法进行前后逻辑处理， 不修改原来的代码项。 但这种做法有局限性， 并不支持各个bean或者类的所有方法，也不支持私有方法。 最保险的是针对所有方法都加一个代理修饰器， 可这种做法入侵性太强，所有现有代码都要手动包一遍， 费事费力不多说， 还不能对依赖包的方法也做相同的处理。  </p>
+        <p>对于一个web服务， 当要求统计当前请求的整个方法链路的调用次数和各个方法的耗时， 该如何做？  </p>
+<h1 id="撸个玩具车版的请求链路统计"><a href="#撸个玩具车版的请求链路统计" class="headerlink" title="撸个玩具车版的请求链路统计"></a>撸个玩具车版的请求链路统计</h1><p>通常， 首先想到的就是 aop， 切面针对注解或者具体方法进行前后逻辑处理， 不修改原来的代码项。 但这种做法有局限性， 并不支持各个bean或者类的所有方法，也不支持私有方法。 最保险的是针对所有方法都加一个代理修饰器， 可这种做法入侵性太强，所有现有代码都要手动包一遍， 费事费力不多说， 还不能对依赖包的方法也做相同的处理。  </p>
 <p>比如，针对现有的web服务， 要求知道从请求开始到结束， 这个线程整个方法链路流程（包括private方法和依赖包的方法）和在各个方法上的耗时。 aop和在每个方法上去手动更改代码明显不合适。</p>
 <p>这时候， 就需要java的特性，动态处理字节码上场了。</p>
 <h2 id="动态处理字节码"><a href="#动态处理字节码" class="headerlink" title="动态处理字节码"></a>动态处理字节码</h2><p>JVM的加载过程相信都会有印象，而动态处理字节码的过程就发生于此， 通过在加载前重写字节码以达到动态编译的目的</p>
