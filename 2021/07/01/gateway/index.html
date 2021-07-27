@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.5 -->
+    <script>
+        window.materialVersion = "1.5.5"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            gateway | 
+        
+        leefVictorBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="leefVictorBlog">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/07/01/gateway/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leefvictor.github.io/2021/07/01/gateway/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="gateway | leefVictorBlog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Thu Jul 01 2021 12:26:28 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jul 27 2021 17:28:41 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leefvictor.github.io/2021/07/01/gateway/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/07/01/gateway/index.html",
+    "headline": "gateway",
+    "datePublished": "Thu Jul 01 2021 12:26:28 GMT+0800",
+    "dateModified": "Tue Jul 27 2021 17:28:41 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "leefVictor",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "leefVictorBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#spring-cloud%E7%9A%84%E6%B5%81%E9%87%8F%E6%9D%83%E9%87%8D%E6%8E%A7%E5%88%B6"><span class="post-toc-number">1.</span> <span class="post-toc-text">spring cloud的流量权重控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%BA%E6%99%AF%E6%8F%8F%E8%BF%B0"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">场景描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">框架搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9D%83%E9%87%8D%E6%B5%8B%E8%AF%95"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">权重测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%84%B6%E5%90%8E%E6%98%AF%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">然后是速率限制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1-%E6%9D%83%E9%87%8D-%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6-%E6%90%9E%E5%AE%9A"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">至此，动态路由 + 权重 + 速率限制 搞定</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                gateway
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>leefVictor</strong>
+        <span>7月 01, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=gateway&url=https://leefvictor.github.io/2021/07/01/gateway/index.html&pic=https://leefvictor.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=gateway&url=https://leefvictor.github.io/2021/07/01/gateway/index.html&via=leefVictor" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/07/01/gateway/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/07/01/gateway/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="spring-cloud的流量权重控制"><a href="#spring-cloud的流量权重控制" class="headerlink" title="spring cloud的流量权重控制"></a>spring cloud的流量权重控制</h1><h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>在微服务的整体架构中， 网关作为一个微服务的分发管理提供必不可少的支持, 整个请求的服务留下大致为：</p>
+<pre class="mermaid">graph TD
+miniServ1[微服务1]
+miniServ2[微服务2]
+miniServ3[微服务3]
+gateway[网关]
+webA[web服务]
+
+nginx[nginx]
+
+req[请求]
+
+req-->nginx-->webA
+webA-->|网关|gateway
+subgraph 重点
+gateway-->|根据名称指向微服务|miniServ1
+gateway-->|根据名称指向微服务|miniServ2
+gateway-->|根据名称指向微服务|miniServ3
+end</pre>
+
+
+<p>其中， 网关、各微服务都可以横行扩展作为各自做一个集群， 只要微服务集群的名称相同， 网关指向的方向是不会出问题的。 而网关在这里的作用有： </p>
+<ul>
+<li>对web的服务进行请求限制， 例如： 1秒内限制10次</li>
+<li>提供错误重试机制， 比如其中集群中一个服务有问题， 重新请求</li>
+<li>提供流量控制， 针对微服务集群的， 比如微服务1有3个实例， 其中1个实例由于硬件或者其他原因只想让它处理10%的流量。或者金丝雀发布模式，集群中只上一个实例，只处理10%的流量观测稳定情况</li>
+<li>提供负载均衡， 服务降级， 快速熔断</li>
+</ul>
+<p><em>这次，我们只描述和模拟重点部分 ， 网关和一个微服务集群的流量控制等特性， 因为多个微服务集群下，操作和流程是一样的</em></p>
+<h2 id="框架搭建"><a href="#框架搭建" class="headerlink" title="框架搭建"></a>框架搭建</h2><p>1、因为需要一个注册中心，得先安装consul   </p>
+<p>2、新建微服务项目， 这个微服务仅需要一个接口即可</p>
+<ul>
+<li>pom.xml</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-cloud-starter-consul-config&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">      &lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">      &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>applocation.yaml</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: microServ</span><br><span class="line">  cloud:</span><br><span class="line">    consul:</span><br><span class="line">      host: consul的地址</span><br><span class="line">      discovery:</span><br><span class="line">        #hostname:  这个配置是指当前服务所在的主机地址， 不配置则是默认本机的地址</span><br><span class="line">        service-name: serv-microserv  #小写</span><br><span class="line">        heartbeat:</span><br><span class="line">          enabled: true</span><br><span class="line">        scheme: http</span><br><span class="line">        acl-token: -----</span><br><span class="line">      scheme: http</span><br><span class="line">      config:</span><br><span class="line">        acl-token: -----</span><br><span class="line">        enabled: true</span><br><span class="line">          import-check:</span><br><span class="line">            enabled: false</span><br><span class="line">    loadbalancer:</span><br><span class="line">      ribbon:</span><br><span class="line">        enabled: false</span><br><span class="line">server:</span><br><span class="line">  port: 23456</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>因为要指定当前接口来源实例， 所以增加一个简单接口</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class MockController &#123;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;server.port&#125;&quot;)</span><br><span class="line">    private String port;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/d&quot;)</span><br><span class="line">    public String index()&#123;</span><br><span class="line">        return &quot;microServ&quot; + port;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3、 新建gateway服务：  </p>
+<ul>
+<li>pom.xml</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-cloud-starter-consul-config&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.2.8.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">      &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>application.yaml</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: gateway</span><br><span class="line">  cloud:</span><br><span class="line">    consul:</span><br><span class="line">      host: consul的地址</span><br><span class="line">      discovery:</span><br><span class="line">        #hostname:  这个配置是指当前服务所在的主机地址， 不配置则是默认本机的地址</span><br><span class="line">        service-name: gateway</span><br><span class="line">        heartbeat:</span><br><span class="line">          enabled: true</span><br><span class="line">        scheme: http</span><br><span class="line">        acl-token: ------</span><br><span class="line">      scheme: http</span><br><span class="line">      config:</span><br><span class="line">        acl-token: -----</span><br><span class="line">        enabled: true</span><br><span class="line">        import-check:</span><br><span class="line">          enabled: false</span><br><span class="line">    loadbalancer:</span><br><span class="line">      ribbon:</span><br><span class="line">        enabled: false</span><br><span class="line">    gateway:</span><br><span class="line">      discovery:</span><br><span class="line">        locator:</span><br><span class="line">          enabled: true  #开启服务发现</span><br><span class="line">          lower-case-service-id: true # 设置发现的服务都是小写</span><br><span class="line">          route-id-prefix: serv- #设定发现服务的默认前缀</span><br><span class="line">          include-expression: false  #关掉服务发现后自动创建路由，因为这个自动创建的路由不支持在线更改，所以禁掉, 因此， 网关启动后是一个没有任何路由配置的空白路由项目</span><br><span class="line">#默认拦截器配置</span><br><span class="line">      default-filters:</span><br><span class="line">        - name: Retry   # 所有的服务都启用错误重试</span><br><span class="line">          args:</span><br><span class="line">            retries: 3  # 重试次数</span><br><span class="line">            series: #哪些需要重试, 和 statuses 必须要有一个， 但不建议用这个，非常不建议，尤其有其他的filter时，比如这个例子里面，如果4xx都要重试，那么429这个速率限制的状态码重试就没意义了，</span><br><span class="line">            #另外，速率限制的filter是需要对header进行修改的，但是retry filter会把header的类型变为 readonlyHeader，然后就boom报错了, 所以速率和重试只能二选一</span><br><span class="line">              - SERVER_ERROR  # 5xx 状态码</span><br><span class="line">              - CLIENT_ERROR  # 4xx 状态码</span><br><span class="line"></span><br><span class="line">            statuses: # 那些状态码需要重试，这里的枚举参考 HttpStatus</span><br><span class="line">              - BAD_GATEWAY</span><br><span class="line">              - NOT_FOUND</span><br><span class="line">              - HTTP_VERSION_NOT_SUPPORTED</span><br><span class="line">            methods:</span><br><span class="line">              - GET</span><br><span class="line">              - POST</span><br><span class="line">              - PUT</span><br><span class="line">              - DELETE</span><br><span class="line">            exceptions:</span><br><span class="line">              - java.io.IOException</span><br><span class="line">              - java.util.concurrent.TimeoutException</span><br><span class="line">server:</span><br><span class="line">  port: 23457</span><br><span class="line">management:</span><br><span class="line">  endpoints:</span><br><span class="line">    web:</span><br><span class="line">      exposure:</span><br><span class="line">        include: &quot;*&quot; #这个配置不应该开全部的，这里测试方便就全部开放，有很多敏感的接口, 实际上只需要开放 gateway 就可以了</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>4、启动两个微服务项和一个网关 </p>
+<br/>
+
+<p><img src="/images/consul-instances.png" alt="instances"></p>
+<br/>
+
+<p>这时， 通过网关访问微服务的地址 <a target="_blank" rel="noopener" href="http://localhost:23457/serv-microserv/d">http://localhost:23457/serv-microserv/d</a> 是直接得到404的， 因为在网关上配置了不自动发现并生产路由配置， 所以我们需要手动配置路由。<br/></p>
+<p>5、通过actuator 动态路由配置</p>
+<ul>
+<li><p>查看路由 <a target="_blank" rel="noopener" href="http://localhost:23457/actuator/gateway/routes">http://localhost:23457/actuator/gateway/routes</a></p>
+</li>
+<li><p>新增路由 </p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:23457/actuator/gateway/routes/serv-microserv&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;</span><br><span class="line">    &quot;predicates&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Weight&quot;,  //配置权重</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;serv-microserv&quot;, </span><br><span class="line">                &quot;_genkey_1&quot;:&quot;8&quot;     //这里的权重并不是一定要等于10或者100， 他是一个比例行的， 是以总的权重数值分配， 具体可查看 WeightCalculatorWebFilter.class</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Path&quot;,  //配置路径， 这里可以自行定义</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;/abc/**&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;filters&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;StripPrefix&quot;,  //移除路径后再转发， 比如通过路由地址是 /serv-microserv/b， 那么转发到具体服务时的uri就是 /b了</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;1&quot; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;uri&quot;:&quot;lb://serv-microserv&quot;,  //具体的转发服务</span><br><span class="line">    &quot;order&quot;:0 </span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>刷新重载路由</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:23457/actuator/gateway/refresh&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这时， 浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:23457/abc/d">http://localhost:23457/abc/d</a> 可以看到结果 </li>
+</ul>
+<br/>
+
+<p><img src="/images/result-port55.png" alt="result55"><br><img src="/images/result-port56.png" alt="result56"> </p>
+<br/>
+
+
+<p>6、经过路由新增和刷新后， 可以让路由配置实时生效， 这样的特性就可以延伸出很多种玩法了，就比如开篇提的金丝雀发布，还有权重流量控制<br><em>删除路由配置的方法是 curl –location –request DELETE ‘<a target="_blank" rel="noopener" href="http://localhost:23457/actuator/gateway/routes/serv-microserv&#39;%EF%BC%8C">http://localhost:23457/actuator/gateway/routes/serv-microserv&#39;，</a> 所有的路由配置操作后，必须调用刷新即可方可生效</em></p>
+<h3 id="权重测试"><a href="#权重测试" class="headerlink" title="权重测试"></a>权重测试</h3><p>就拿第6点的权重来说，怎么做到把microServ的流量按照8:2来拆分呢？下面来实践一下，先清掉所有的路由配置</p>
+<p>有两种场景： </p>
+<p><strong>直接针对配置进行更改的</strong></p>
+<ul>
+<li>针对23456的那个微服务进行路由设置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:23457/actuator/gateway/routes/serv-microserv-23456&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;</span><br><span class="line">    &quot;predicates&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Weight&quot;,  </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;serv-microserv&quot;, </span><br><span class="line">                &quot;_genkey_1&quot;:&quot;8&quot;   //权重为8， 也可以是80 20这种数值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Path&quot;,</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;/abc/**&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;filters&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;StripPrefix&quot;, </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;1&quot; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;uri&quot;:&quot;http://172.18.18.123:23456&quot;,,  //这个路由配置只针对 这个具体的实例地址</span><br><span class="line">    &quot;order&quot;:0 </span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这时候访问 <a target="_blank" rel="noopener" href="http://localhost:23457/abc/d">http://localhost:23457/abc/d</a> 的请求都转发到了23456端口的实例</p>
+<ul>
+<li>针对23455的那个微服务进行路由设置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:23457/actuator/gateway/routes/serv-microserv-23455&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;</span><br><span class="line">    &quot;predicates&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Weight&quot;,  </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;serv-microserv&quot;, </span><br><span class="line">                &quot;_genkey_1&quot;:&quot;2&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Path&quot;,</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;/abc/**&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;filters&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;StripPrefix&quot;, </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;1&quot; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;uri&quot;:&quot;http://172.18.18.123:23455&quot;,  //直接指定实例地址</span><br><span class="line">    &quot;order&quot;:0 </span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>刷新路由后， 调用 curl –location –request GET ‘localhost:23457/actuator/gateway/routes’ 可以看到具体的两个配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;predicate&quot;: &quot;(Weight: serv-microserv 2 &amp;&amp; Paths: [/abc/**], match trailing slash: true)&quot;,</span><br><span class="line">        &quot;route_id&quot;: &quot;serv-microserv-23455&quot;,</span><br><span class="line">        &quot;filters&quot;: [</span><br><span class="line">            &quot;[[Retry routeId = &#x27;serv-microserv-23455&#x27;, retries = 3, series = list[SERVER_ERROR, CLIENT_ERROR], statuses = list[502 BAD_GATEWAY, 404 NOT_FOUND, 505 HTTP_VERSION_NOT_SUPPORTED], methods = list[GET, POST, PUT, DELETE], exceptions = list[IOException, TimeoutException]], order = 1]&quot;,</span><br><span class="line">            &quot;[[StripPrefix parts = 1], order = 1]&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;uri&quot;: &quot;http://172.18.18.123:23455&quot;,</span><br><span class="line">        &quot;order&quot;: 0</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;predicate&quot;: &quot;(Weight: serv-microserv 8 &amp;&amp; Paths: [/abc/**], match trailing slash: true)&quot;,</span><br><span class="line">        &quot;route_id&quot;: &quot;serv-microserv-23456&quot;,</span><br><span class="line">        &quot;filters&quot;: [</span><br><span class="line">            &quot;[[Retry routeId = &#x27;serv-microserv-23456&#x27;, retries = 3, series = list[SERVER_ERROR, CLIENT_ERROR], statuses = list[502 BAD_GATEWAY, 404 NOT_FOUND, 505 HTTP_VERSION_NOT_SUPPORTED], methods = list[GET, POST, PUT, DELETE], exceptions = list[IOException, TimeoutException]], order = 1]&quot;,</span><br><span class="line">            &quot;[[StripPrefix parts = 1], order = 1]&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;uri&quot;: &quot;http://172.18.18.123:23456&quot;,</span><br><span class="line">        &quot;order&quot;: 0</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>更改服务名再更改的</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: microServ</span><br><span class="line">  cloud:</span><br><span class="line">    consul:</span><br><span class="line">      host: consul地址</span><br><span class="line">      discovery:</span><br><span class="line">        #hostname:  这个配置是指当前服务所在的主机地址， 不配置则是默认本机的地址</span><br><span class="line">        service-name: serv-microserv-$&#123;server.port&#125;  #小写， 这里把服务端口也加入服务名的构成属性</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>针对23456的那个微服务进行路由设置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:23457/actuator/gateway/routes/serv-microserv-23456&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;</span><br><span class="line">    &quot;predicates&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Weight&quot;,  </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;serv-microserv&quot;, </span><br><span class="line">                &quot;_genkey_1&quot;:&quot;8&quot;   //权重为8</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Path&quot;,</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;/abc/**&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;filters&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;StripPrefix&quot;, </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;1&quot; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;uri&quot;:&quot;lb://serv-microserv-23456&quot;,  //这个路由配置只针对 这个具体的实例地址</span><br><span class="line">    &quot;order&quot;:0 </span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这时候访问 <a target="_blank" rel="noopener" href="http://localhost:23457/abc/d">http://localhost:23457/abc/d</a> 的请求都转发到了23456端口的实例</p>
+<ul>
+<li>针对23455的那个微服务进行路由设置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;http://localhost:23457/actuator/gateway/routes/serv-microserv-23455&#x27; \</span><br><span class="line">--header &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">--data-raw &#x27;&#123;</span><br><span class="line">    &quot;predicates&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Weight&quot;,  </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;serv-microserv&quot;, </span><br><span class="line">                &quot;_genkey_1&quot;:&quot;2&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Path&quot;,</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;/abc/**&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;filters&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;StripPrefix&quot;, </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;1&quot; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;uri&quot;:&quot;lb://serv-microserv-23455&quot;, </span><br><span class="line">    &quot;order&quot;:0 </span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>刷新路由后， 调用 curl –location –request GET ‘localhost:23457/actuator/gateway/routes’ 可以看到具体的两个配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;predicate&quot;: &quot;(Weight: serv-microserv 8 &amp;&amp; Paths: [/abc/**], match trailing slash: true)&quot;,</span><br><span class="line">        &quot;route_id&quot;: &quot;serv-microserv-23456&quot;,</span><br><span class="line">        &quot;filters&quot;: [</span><br><span class="line">            &quot;[[Retry routeId = &#x27;serv-microserv-23456&#x27;, retries = 3, series = list[SERVER_ERROR, CLIENT_ERROR], statuses = list[502 BAD_GATEWAY, 404 NOT_FOUND, 505 HTTP_VERSION_NOT_SUPPORTED], methods = list[GET, POST, PUT, DELETE], exceptions = list[IOException, TimeoutException]], order = 1]&quot;,</span><br><span class="line">            &quot;[[StripPrefix parts = 1], order = 1]&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;uri&quot;: &quot;lb://serv-microserv-23455&quot;,</span><br><span class="line">        &quot;order&quot;: 0</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;predicate&quot;: &quot;(Weight: serv-microserv 2 &amp;&amp; Paths: [/abc/**], match trailing slash: true)&quot;,</span><br><span class="line">        &quot;route_id&quot;: &quot;serv-microserv-23455&quot;,</span><br><span class="line">        &quot;filters&quot;: [</span><br><span class="line">            &quot;[[Retry routeId = &#x27;serv-microserv-23455&#x27;, retries = 3, series = list[SERVER_ERROR, CLIENT_ERROR], statuses = list[502 BAD_GATEWAY, 404 NOT_FOUND, 505 HTTP_VERSION_NOT_SUPPORTED], methods = list[GET, POST, PUT, DELETE], exceptions = list[IOException, TimeoutException]], order = 1]&quot;,</span><br><span class="line">            &quot;[[StripPrefix parts = 1], order = 1]&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;uri&quot;: &quot;lb://serv-microserv-23455&quot;,</span><br><span class="line">        &quot;order&quot;: 0</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>上述两种方式选择其一， 更改后，通过压测工具比对结果（快速并发20次）， 其中有4个结果是23455的<br><img src="/images/%E5%8E%8B%E6%B5%8B%E7%BB%93%E6%9E%9C.png" alt="压测结果"></p>
+<h2 id="然后是速率限制"><a href="#然后是速率限制" class="headerlink" title="然后是速率限制"></a>然后是速率限制</h2><p>速率限制的实现需要先自定义号一个限制key值生成器 </p>
+<p>在网关项目中注册一个bean</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public KeyResolver userKeyResolver() &#123; // 这里是以ip+method+uri作为key值, 即以这个key值作为限制速率的操作基准</span><br><span class="line">    return exchange -&gt; &#123;</span><br><span class="line">        String key = exchange.getRequest().getRemoteAddress().getHostName()</span><br><span class="line">            .concat(exchange.getRequest().getMethodValue()).concat(&quot;_&quot;)</span><br><span class="line">            .concat(exchange.getRequest().getPath().value()).concat(&quot;_&quot;);</span><br><span class="line">        System.out.println(key);</span><br><span class="line">        return Mono.just(key);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后再上面新建路由的时候进行指定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;   </span><br><span class="line">    &quot;predicates&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Weight&quot;,  </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;serv-microserv&quot;, </span><br><span class="line">                &quot;_genkey_1&quot;:&quot;8&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;Path&quot;,</span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;/abc/**&quot;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;filters&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;StripPrefix&quot;, </span><br><span class="line">            &quot;args&quot;:&#123;</span><br><span class="line">                &quot;_genkey_0&quot;:&quot;1&quot; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;:&quot;RequestRateLimiter&quot;,</span><br><span class="line">            &quot;args&quot;:&#123;   //使用redis，</span><br><span class="line">                &quot;redis-rate-limiter.replenishRate&quot;:1, --每秒填充数，即每秒允许访问数</span><br><span class="line">                &quot;redis-rate-limiter.burstCapacity&quot;:5, --每秒最大访问数，应对突发情况的， 水桶令牌算法好像是，具体可以去了解</span><br><span class="line">                &quot;key-resolver&quot;:&quot;#&#123;@userKeyResolver&#125;&quot; --使用的key值生成器</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;uri&quot;:&quot;http://172.18.18.123:23456&quot;, </span><br><span class="line">    &quot;order&quot;:0 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>快速请求后可以看到以下结果：<br><img src="/images/%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6.png" alt="速率限制"></p>
+<p><em>注:  速率限制的filter是需要对header进行修改的，但是retry filter会把header的类型变为 readonlyHeader， 所以速率和重试只能二选一, 也就是说重试的filter应该从上面的默认配置中去除</em></p>
+<h3 id="至此，动态路由-权重-速率限制-搞定"><a href="#至此，动态路由-权重-速率限制-搞定" class="headerlink" title="至此，动态路由 + 权重 + 速率限制 搞定"></a>至此，动态路由 + 权重 + 速率限制 搞定</h3><br/>
+
+<p>但是， 毕竟都使用了consul的config属性了， 不来一个路由配置自动刷新的操作有点说不过去吧</p>
+<p>因为上面的每一个curl都是真的单个网关服务进行请求的， 所以如果网关是一个集群， 那么一一请求各网关实例的操作并不好。 所以， 每个网关开一个监听器进行便是一个很好的选择， 监听器由配置中心的配置触发。每次触发都重新更新路由配置。</p>
+<p>大体流程：</p>
+<pre class="mermaid">
+graph TD
+serv[微服务]
+gateway[网关]
+serv-startup[启动]
+schedule[定时拉取配置]
+config[consul配置中心]
+
+
+serv-->serv-startup-->|更新当前服务实例的路由配置|config
+
+gateway-->schedule-->|每10秒拉取所有路由配置|config-->查看当前健康状态实例-->health{是否健康}
+health-->|是|更新新实例的路由-->refresh[刷新路由]
+health-->|否|移除无效实例的路由-->refresh</pre>
+
+
+
+
+<p>为了明显地区分， 所有服务的配置都注册到 route这个文件夹上 (<em>consul在页面创建的配置的时候， 以/结束则是建文件夹</em>)</p>
+<p><img src="/images/%E9%85%8D%E7%BD%AE1.png" alt="配置1"><br><img src="/images/%E9%85%8D%E7%BD%AE2.png" alt="配置2"></p>
+<p>代码就不一一截图了，只是在这里着重说明一下踩坑点， 权重filter：<br/></p>
+<p>org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter.groupWeights, 这个属性是一个bean的类属性， 只在路由新增时进行了权重配置的写入， 删除路由配置时并没有做任何修改， 所以一旦下线一个服务， 权重配比仍然生效， 只是快速熔断返回了404页面罢了， 我再网关demo项目中做了适配， 增加了删除路由时间和重写路由配比的逻辑。</p>
+<p>代码地址：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/gateway">网关demo</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/microServ">微服务demo</a></li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/07/21/redis-cache/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/06/12/Xss/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="leefVictor's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;leefVictorBlog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({startOnLoad:true});
+        }
+    </script>
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.5 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

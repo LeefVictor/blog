@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.5 -->
+    <script>
+        window.materialVersion = "1.5.5"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            请求链路统计 | 
+        
+        leefVictorBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="leefVictorBlog">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/04/27/dynamic-code/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leefvictor.github.io/2021/04/27/dynamic-code/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="请求链路统计 | leefVictorBlog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Tue Apr 27 2021 16:02:14 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jul 27 2021 17:05:36 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leefvictor.github.io/2021/04/27/dynamic-code/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/04/27/dynamic-code/index.html",
+    "headline": "请求链路统计",
+    "datePublished": "Tue Apr 27 2021 16:02:14 GMT+0800",
+    "dateModified": "Tue Jul 27 2021 17:05:36 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "leefVictor",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "leefVictorBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%92%B8%E4%B8%AA%E7%8E%A9%E5%85%B7%E8%BD%A6%E7%89%88%E7%9A%84%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E7%BB%9F%E8%AE%A1"><span class="post-toc-number">1.</span> <span class="post-toc-text">撸个玩具车版的请求链路统计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E5%A4%84%E7%90%86%E5%AD%97%E8%8A%82%E7%A0%81"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">动态处理字节码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B0%8F%E8%AF%95"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">小试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#coding"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">coding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8Cweb%E9%A1%B9%E7%9B%AE"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">创建并运行web项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E7%9B%AE%E4%BA%86%E7%84%B6"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">一目了然</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A7%84%E9%81%BF%E5%9C%BA%E6%99%AF"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">规避场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">项目代码</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                请求链路统计
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>leefVictor</strong>
+        <span>4月 27, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=请求链路统计&url=https://leefvictor.github.io/2021/04/27/dynamic-code/index.html&pic=https://leefvictor.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=请求链路统计&url=https://leefvictor.github.io/2021/04/27/dynamic-code/index.html&via=leefVictor" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/04/27/dynamic-code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/04/27/dynamic-code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="撸个玩具车版的请求链路统计"><a href="#撸个玩具车版的请求链路统计" class="headerlink" title="撸个玩具车版的请求链路统计"></a>撸个玩具车版的请求链路统计</h1><p>对于一个web服务， 当要求统计当前请求的整个方法链路的调用次数和各个方法的耗时， 该如何做？  </p>
+<p>通常， 首先想到的就是 aop， 切面针对注解或者具体方法进行前后逻辑处理， 不修改原来的代码项。 但这种做法有局限性， 并不支持各个bean或者类的所有方法，也不支持私有方法。 最保险的是针对所有方法都加一个代理修饰器， 可这种做法入侵性太强，所有现有代码都要手动包一遍， 费事费力不多说， 还不能对依赖包的方法也做相同的处理。  </p>
+<p>比如，针对现有的web服务， 要求知道从请求开始到结束， 这个线程整个方法链路流程（包括private方法和依赖包的方法）和在各个方法上的耗时。 aop和在每个方法上去手动更改代码明显不合适。</p>
+<p>这时候， 就需要java的特性，动态处理字节码上场了。</p>
+<h2 id="动态处理字节码"><a href="#动态处理字节码" class="headerlink" title="动态处理字节码"></a>动态处理字节码</h2><p>JVM的加载过程相信都会有印象，而动态处理字节码的过程就发生于此， 通过在加载前重写字节码以达到动态编译的目的</p>
+<p>Java 生态里有很多可以动态处理字节码的技术，比较流行的有两个，一个是 ASM，一个是 Javassist 。</p>
+<p>ASM，Javassist。 前者门槛较高。</p>
+<h2 id="小试"><a href="#小试" class="headerlink" title="小试"></a>小试</h2><p><strong>既有代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        Main main = new Main();</span><br><span class="line">        main.bb();</span><br><span class="line">        main.aa();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private int aa() throws InterruptedException &#123;</span><br><span class="line">        Thread.sleep(10*1000);</span><br><span class="line">        System.out.println(&quot;aa&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void bb()&#123;</span><br><span class="line">        System.out.println(&quot;bb&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>编写动态转化器</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public class LogTimeTransformer implements ClassFileTransformer &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public byte[] transform(ClassLoader loader,</span><br><span class="line">        String className,</span><br><span class="line">        Class&lt;?&gt; classBeingRedefined,</span><br><span class="line">        ProtectionDomain protectionDomain,</span><br><span class="line">        byte[] classfileBuffer) throws IllegalClassFormatException &#123;</span><br><span class="line"></span><br><span class="line">        ClassPool pool = ClassPool.getDefault();</span><br><span class="line">        CtClass cc = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            cc = pool.makeClass(new ByteArrayInputStream(classfileBuffer));</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        CtMethod[] methods = cc.getDeclaredMethods();</span><br><span class="line">        try &#123;</span><br><span class="line">            for (CtMethod m : methods) &#123;</span><br><span class="line">                //只处理指定包的类， 不然所有的hash， toString都会被加上相关的字节码</span><br><span class="line">                if (!m.getLongName().startsWith(&quot;com.company&quot;)) &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(&quot;method is &quot; + m.getLongName());</span><br><span class="line"></span><br><span class="line">                //增加一个局部变量</span><br><span class="line">                m.addLocalVariable(&quot;startTime&quot;, CtClass.longType);</span><br><span class="line">                //首行插入起始时间变量值</span><br><span class="line">                m.insertAt(1, &quot;startTime = System.currentTimeMillis();&quot;);</span><br><span class="line"></span><br><span class="line">                //在最后行加入输出耗时时长的日子， 注意， 这里使用的startTime必须使用上述的 addLocalVariable来声明[1]</span><br><span class="line">                m.insertAfter(&quot;System.out.println(\&quot;&quot; + m.getName() + &quot; 耗时时长\&quot; + (System.currentTimeMillis() - startTime));&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            //将转化后的class文件输出到本地目录， 方便查验</span><br><span class="line">            cc.writeFile(&quot;D://temp&quot;);</span><br><span class="line">            return cc.toBytecode();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            return classfileBuffer;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //javaagent 具体执行类</span><br><span class="line">    public static void premain(</span><br><span class="line">        String agentArgs, Instrumentation inst) throws UnmodifiableClassException &#123;</span><br><span class="line">        LogTimeTransformer transformer = new LogTimeTransformer();</span><br><span class="line">        //为所有的类都加锁此转换编译器</span><br><span class="line">        inst.addTransformer(transformer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><em>注</em> [1] 因为每次的m.insert操作都是一个插入+编译的操作， 也就是说实时生效的一个编译过程， 如果直接在首行使用 m.insertAt(1, “long startTime = 1L”); 在m.insertAfter()操作的使用是不能直接使用startTime变量的， 因为他已经被实时编译成为字节码了， 即字节码中的引用执行已经确定了。</p>
+<p><strong>打包</strong><br>手动配置MANIFEST.MF文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: 1.0</span><br><span class="line">Premain-Class: com.company.LogTimeTransformer  //指定permain方法所在的类</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将其打包为jar包</p>
+<p><strong>启动</strong></p>
+<p><img src="/images/startup-agent.png" alt="startup"></p>
+<p><strong>启动成功后class 内容</strong></p>
+<p><img src="/images/transformer.png" alt="transformer"></p>
+<p><strong>结果</strong></p>
+<p><img src="/images/agent-result.png" alt="agent-result"></p>
+<p>所以， 根据这种实现， 是不是可以完成我们的链路记录目的？</p>
+<h2 id="coding"><a href="#coding" class="headerlink" title="coding"></a>coding</h2><p>根据需求， 要能记录整个方法调用链路和各个方法的耗时。所以做好分工， 提供一个核心包（主要是一个记录类）供web模块使用， 提供一个代理包， 供web启动时指定 javaagent 。 所以大体目录结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">project</span><br><span class="line">   |_ agent-core </span><br><span class="line">   |_ agent-process</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>首先</strong>是agent-core包， 就单纯一个简单的属性类， 由于是request请求， 所以此类的生命周期可以跟随request对象走。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">public class ReqChain &#123;</span><br><span class="line"></span><br><span class="line">    public static final String ATTRIBUTE_NAME = &quot;com-zj-agent-req-per-chain&quot;;</span><br><span class="line"></span><br><span class="line">    private String methodName;</span><br><span class="line">    private long time_start;</span><br><span class="line">    private long time_end;</span><br><span class="line"></span><br><span class="line">    private volatile int status;</span><br><span class="line">    private List&lt;ReqChain&gt; usages = new ArrayList&lt;&gt;(); //方法体所调用的方法类</span><br><span class="line">    private volatile int currentUsageIndex = 0;//usages中当前处理方法的下标</span><br><span class="line"></span><br><span class="line">    public ReqChain() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static ReqChain getCurrentChain(String methodName, HttpServletRequest request)&#123;</span><br><span class="line">        //获取当前请求中的对象</span><br><span class="line">        ReqChain chain = (ReqChain) request.getAttribute(ATTRIBUTE_NAME);</span><br><span class="line"></span><br><span class="line">        ReqChain parent = chain;</span><br><span class="line">        for (int i = chain.getUsages().size() - 1; i &gt;=0 ; i--) &#123;</span><br><span class="line">            ReqChain temp = chain.getUsages().get(i);</span><br><span class="line">            if (temp.getStatus() == 0) &#123;</span><br><span class="line">                parent = temp;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //因为是每次都在方法调用时新建， 所以不需要担心单例与否问题</span><br><span class="line">        ReqChain reqChain = new ReqChain();</span><br><span class="line">        reqChain.setMethodName(methodName);</span><br><span class="line">        reqChain.setTime_start(System.currentTimeMillis());</span><br><span class="line">        parent.getUsages().add(reqChain);</span><br><span class="line">        parent.currentUsageIndex = parent.usages.size() - 1;</span><br><span class="line"></span><br><span class="line">        return parent.getUsages().get(parent.currentUsageIndex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void finish()&#123;</span><br><span class="line">        time_end = System.currentTimeMillis();</span><br><span class="line">        status = 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //输出相关的链路日志</span><br><span class="line">    public String print()&#123;</span><br><span class="line">        return print(0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //deep为深度， 方便输出层级分明的日志</span><br><span class="line">    public String print(int deep)&#123;</span><br><span class="line">        List&lt;String&gt; spaceSeparator = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; deep; i++) &#123;</span><br><span class="line">            spaceSeparator.add(&quot;    &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder builder = new StringBuilder((spaceSeparator.isEmpty() ? &quot;&quot; : String.join( &quot;&quot;, spaceSeparator) + &quot;|_&quot;) + methodName);</span><br><span class="line">        builder.append(&quot;  [耗时&quot;+ (time_end - time_start) + &quot;毫秒]\n&quot;);</span><br><span class="line"></span><br><span class="line">        int currentDeep = deep + 1;</span><br><span class="line">        spaceSeparator.add(&quot;    &quot;);</span><br><span class="line">        for (ReqChain usage : usages) &#123;</span><br><span class="line">            builder.append(String.join( &quot;&quot;, spaceSeparator)).append(usage.print(currentDeep));</span><br><span class="line">        &#125;</span><br><span class="line">        return builder.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>and 打包！</p>
+<p><strong>然后</strong>是代理包 </p>
+<p>先定义premain方法类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class AgentProcess &#123;</span><br><span class="line"></span><br><span class="line">    public static void premain(</span><br><span class="line">        String agentArgs, Instrumentation inst) throws UnmodifiableClassException &#123;</span><br><span class="line">        TestTransformer transformer = new TestTransformer(agentArgs);</span><br><span class="line">        inst.addTransformer(transformer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>再定义transformer类</p>
+<br/>
+
+<p>大体流程就是 在 @RequestMapping 这些接口注解的地方[2]创建 ReqChain对象 ， 作为request的一个attribute</p>
+<p>然后再所有调用方法中通过 ReqChain.getCurrentChain 进行创建当前方法的ReqChain对象。 并进行相关的属性设置</p>
+<br/>
+
+<p>最后在所有方法体结尾处进行 finish()方法调用。 并在[2]的方法结尾进行链路日志输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">public class TestTransformer implements ClassFileTransformer &#123;</span><br><span class="line"></span><br><span class="line">    //只有指定的包路径下的类才进行此动态转化</span><br><span class="line">    private List&lt;String&gt; scanPackageName;</span><br><span class="line"></span><br><span class="line">    public TestTransformer(String agentArgs) &#123;</span><br><span class="line">        this.scanPackageName = Arrays.asList(agentArgs.split(&quot;,&quot;));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private final String source_create = &quot;&quot;</span><br><span class="line">        + &quot;   &quot;</span><br><span class="line">        + &quot;        reqChain = new ReqChain();&quot;</span><br><span class="line">        + &quot;        chainRequestObj = ((org.springframework.web.context.request.ServletRequestAttributes) org.springframework.web.context.request.RequestContextHolder.getRequestAttributes()).getRequest();&quot;</span><br><span class="line">        + &quot;        reqChain.setMethodName(\&quot;%s\&quot;);&quot;</span><br><span class="line">        + &quot;        reqChain.setTime_start(System.currentTimeMillis());&quot;</span><br><span class="line">        + &quot;        chainRequestObj.setAttribute(ReqChain.ATTRIBUTE_NAME, reqChain);&quot;</span><br><span class="line">        + &quot;   &quot;;</span><br><span class="line"></span><br><span class="line">    private final String source_current = &quot;&quot;</span><br><span class="line">        + &quot;   &quot;</span><br><span class="line">        + &quot;        chainRequestObj = ((org.springframework.web.context.request.ServletRequestAttributes) org.springframework.web.context.request.RequestContextHolder.getRequestAttributes()).getRequest();&quot;</span><br><span class="line">        + &quot;        reqChain = ReqChain.getCurrentChain(\&quot;%s\&quot;, chainRequestObj);&quot;</span><br><span class="line">        + &quot;   &quot;;</span><br><span class="line"></span><br><span class="line">    private final String source_finish = &quot;&quot;</span><br><span class="line">        + &quot;   if (reqChain != null) &#123;&quot;</span><br><span class="line">        + &quot;        reqChain.finish();&quot;</span><br><span class="line">        + &quot;   &#125;&quot;;</span><br><span class="line">    private final String source_print = &quot;&quot;</span><br><span class="line">        + &quot;   if (reqChain != null) &#123; &quot;</span><br><span class="line">        + &quot;        System.out.println(reqChain.print());&quot;</span><br><span class="line">        + &quot;   &#125;&quot;;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public byte[] transform(ClassLoader loader,</span><br><span class="line">        String className,</span><br><span class="line">        Class&lt;?&gt; classBeingRedefined,</span><br><span class="line">        ProtectionDomain protectionDomain,</span><br><span class="line">        byte[] classfileBuffer) throws IllegalClassFormatException &#123;</span><br><span class="line"></span><br><span class="line">        ClassPool pool = ClassPool.getDefault();</span><br><span class="line">        //引入包</span><br><span class="line">        pool.importPackage(&quot;com.zj.agentcore.entity&quot;);</span><br><span class="line">        CtClass cc = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            cc = pool.makeClass(new ByteArrayInputStream( classfileBuffer));</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        CtMethod[] methods = cc.getDeclaredMethods();</span><br><span class="line">        try &#123;</span><br><span class="line">            for (CtMethod m : methods) &#123;</span><br><span class="line">                if (m.getName().equals(&quot;main&quot;)) &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                for (String s : scanPackageName) &#123;</span><br><span class="line">                    if (m.getLongName().contains(s)) &#123;</span><br><span class="line">                        //直接在insert里面声明的局部变量只能在此此insert的源码中使用， 之后在调用insert的话是不能再用之前的变量的， 因为每次的insert都是已编译并写如字节码， 每次编译后字节码的变量名是有变化的</span><br><span class="line">                        //如果要使用， 就需要这样去声明一个局部变量</span><br><span class="line">                        m.addLocalVariable(&quot;reqChain&quot;, pool.get(&quot;com.zj.agentcore.entity.ReqChain&quot;));</span><br><span class="line">                        m.addLocalVariable(&quot;chainRequestObj&quot;, pool.get(&quot;javax.servlet.http.HttpServletRequest&quot;));</span><br><span class="line">                        if (m.getAnnotation(RequestMapping.class) != null || m.getAnnotation(GetMapping.class) != null || m.getAnnotation(</span><br><span class="line">                            PostMapping.class) != null) &#123;</span><br><span class="line">                            m.insertBefore(String.format(source_create, m.getLongName()));</span><br><span class="line">                            m.insertAfter(source_finish+source_print);</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            m.insertBefore(String.format(source_current, m.getLongName()));</span><br><span class="line">                            m.insertAfter(source_finish);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            cc.writeFile(&quot;D:/temp&quot;);</span><br><span class="line">            return cc.toBytecode();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            return classfileBuffer;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>手动配置MANIFEST.MF文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: 1.0</span><br><span class="line">Premain-Class: com.zj.agentprocess.agent.AgentProcess</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>打包agent-process.jar</p>
+<br/>
+
+<h2 id="创建并运行web项目"><a href="#创建并运行web项目" class="headerlink" title="创建并运行web项目"></a>创建并运行web项目</h2><p>新建一个简单的web项目</p>
+<p>pom文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">  &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">  &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">  &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.zj&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;agent-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">      &lt;exclusion&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">      &lt;/exclusion&gt;</span><br><span class="line">    &lt;/exclusions&gt;</span><br><span class="line">  &lt;/dependency&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>定义几个简单的serv，dao，和controller</p>
+<p>controller</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class MController &#123;</span><br><span class="line"></span><br><span class="line">    private final ServC servC;</span><br><span class="line">    private final ServD servD;</span><br><span class="line"></span><br><span class="line">    public MController(ServC servC, ServD servD, HttpServletRequest request) &#123;</span><br><span class="line">        this.servC = servC;</span><br><span class="line">        this.servD = servD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;a&quot;)</span><br><span class="line">    public String a()&#123;</span><br><span class="line">         servC.getC();</span><br><span class="line">         servD.getD();</span><br><span class="line">         return &quot;a&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;b&quot;)</span><br><span class="line">    public String b()&#123;</span><br><span class="line">        servC.getC();</span><br><span class="line">        servD.getD();</span><br><span class="line">        return &quot;b&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @PostMapping(&quot;ca&quot;)</span><br><span class="line">    public String ca()&#123;</span><br><span class="line">        servC.getC();</span><br><span class="line">        servD.getD();</span><br><span class="line">        return &quot;ca&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>serv</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class ServC &#123;</span><br><span class="line"></span><br><span class="line">    private final BDao bDao;</span><br><span class="line"></span><br><span class="line">    private final TDao tDao;</span><br><span class="line"></span><br><span class="line">    public ServC(BDao bDao, TDao tDao) &#123;</span><br><span class="line">        this.bDao = bDao;</span><br><span class="line">        this.tDao = tDao;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getC()&#123;</span><br><span class="line">        bDao.getA();</span><br><span class="line">        tDao.getT();</span><br><span class="line">        bDao.getA();</span><br><span class="line">        return &quot;C&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class ServD &#123;</span><br><span class="line"></span><br><span class="line">    public String getD()&#123;</span><br><span class="line">        return &quot;D&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>dao</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class BDao &#123;</span><br><span class="line"></span><br><span class="line">    public String getA()&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(5*1000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;a&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public String getB()&#123;</span><br><span class="line">        return &quot;b&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class TDao &#123;</span><br><span class="line"></span><br><span class="line">    public String getT()&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(2*1000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;T&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>配置vm 参数：</p>
+<p><img src="/images/vm-option.png" alt="vm-option"></p>
+<p>运行~</p>
+<h2 id="一目了然"><a href="#一目了然" class="headerlink" title="一目了然"></a>一目了然</h2><p>look !<br>整个请求的方法调用链路层级和各个方法的耗时时长都很明显的展示了出来（虽然格式丑了点， 但demo嘛， 不寒碜）</p>
+<p><img src="/images/look.png" alt="look"></p>
+<h2 id="规避场景"><a href="#规避场景" class="headerlink" title="规避场景"></a>规避场景</h2><p>之所以说是玩具车，原因是撸的demo只支持非异步框架， 若请求过程中使用的异步流程或者其他非常规的高级用法， 分分钟踩坑。而且， 还不方便调试， 比较运行中的class和源码所编译出来的class是有所差异的。 所以便需要保证agent-process程序的高容错性和insert代码的准确性， 也最好不要在其中插入一些阻塞或者异步等可能会对原方法结果有影响的代码。</p>
+<h2 id="项目代码"><a href="#项目代码" class="headerlink" title="项目代码"></a>项目代码</h2><p><a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/agent-process">agent包</a><br><a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/agent-core">核心包</a><br><a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/simpleweb">web项目</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/05/20/Consul-acl/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="leefVictor's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        youremail@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;leefVictorBlog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({startOnLoad:true});
+        }
+    </script>
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.5 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
