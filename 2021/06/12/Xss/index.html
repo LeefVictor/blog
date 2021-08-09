@@ -240,7 +240,7 @@
 
     
         <meta property="article:published_time" content="Sat Jun 12 2021 15:43:36 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jul 28 2021 10:19:54 GMT+0800">
+        <meta property="article:modified_time" content="Mon Aug 09 2021 16:09:42 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -263,7 +263,7 @@
     "mainEntityOfPage": "https://leefvictor.github.io/2021/06/12/Xss/index.html",
     "headline": "Xss参数释疑",
     "datePublished": "Sat Jun 12 2021 15:43:36 GMT+0800",
-    "dateModified": "Wed Jul 28 2021 10:19:54 GMT+0800",
+    "dateModified": "Mon Aug 09 2021 16:09:42 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -566,6 +566,7 @@
 <ul>
 <li>内存余裕的， -Xss124m, 增大jvm参数指标值</li>
 <li>内存吃紧的， 但同时线程使用又频发的。可以考虑一下多线程，因为每个线程说使用各自独立的调用栈， 所以不管原方法的深度如何，每次递归方法都说一个独立的调用栈。（因为各个业务场景的使用都不同， 也无法枚举，这里只是提供一下自己的思路方向）</li>
+<li>针对级别节点进行切割， 以多线程的方式进行裂变任务递归（ForkJoin）, 因为每个线程的栈帧深度是在创建线程时就根据配置分配了固定大小的。 既然在一个线程内栈帧过深， 按照深度来进行不同线程处理也是一个选择</li>
 </ul>
 
         
