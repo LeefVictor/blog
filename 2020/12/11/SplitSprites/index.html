@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.5 -->
+    <script>
+        window.materialVersion = "1.5.5"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            分割一个雪碧图 | 
+        
+        leefVictorBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/touxiang.png">
+    <link rel="icon" href="/img/touxiang.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",sprites,图片分割,gif图片生成">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="leefVictorBlog">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2020/12/11/SplitSprites/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/touxiang.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leefvictor.github.io/2020/12/11/SplitSprites/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="分割一个雪碧图 | leefVictorBlog">
+    <meta property="og:image" content="/img/touxiang.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="sprites"> <meta property="og:article:tag" content="图片分割"> <meta property="og:article:tag" content="gif图片生成"> 
+
+    
+        <meta property="article:published_time" content="Fri Dec 11 2020 18:59:13 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 12 2021 11:04:17 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leefvictor.github.io/2020/12/11/SplitSprites/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leefvictor.github.io/2020/12/11/SplitSprites/index.html",
+    "headline": "分割一个雪碧图",
+    "datePublished": "Fri Dec 11 2020 18:59:13 GMT+0800",
+    "dateModified": "Thu Aug 12 2021 11:04:17 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "leefVictor",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/main.gif"
+        },
+        "description": "We knew nothing, and we will knowing anything"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "leefVictorBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/touxiang.png"
+        }
+    },
+    "keywords": ",sprites,图片分割,gif图片生成",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%BA%E6%99%AF"><span class="post-toc-number">1.</span> <span class="post-toc-text">场景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Go"><span class="post-toc-number">2.</span> <span class="post-toc-text">Go</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E5%88%86%E5%89%B2"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">首先是分割</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%84%B6%E5%90%8E%EF%BC%8C-%E6%98%AF%E5%9B%BE%E7%89%87%E5%AE%BD%E5%BA%A6%E7%9A%84%E6%89%A9%E5%B1%95"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">然后， 是图片宽度的扩展</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C-%E6%98%AFgif%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E7%94%9F%E6%88%90"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">最后， 是gif的图片的生成</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 26 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                分割一个雪碧图
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/main.gif" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>leefVictor</strong>
+        <span>12月 11, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/gif%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90/" rel="tag">gif图片生成</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/sprites/" rel="tag">sprites</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E5%89%B2/" rel="tag">图片分割</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=分割一个雪碧图&url=https://leefvictor.github.io/2020/12/11/SplitSprites/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=分割一个雪碧图&url=https://leefvictor.github.io/2020/12/11/SplitSprites/index.html&via=leefVictor" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2020/12/11/SplitSprites/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2020/12/11/SplitSprites/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p><img src="/images/sprites.png" alt="sprites"><br>将上面的雪碧图，变成一个gif图片~。</p>
+<p>可以看得出来， 每个具体的图片都是一个具体的动作。每个动作之间， 都留有一个空白的间隔。而我们知道， 透明的像素点其 rgb=-1。so， 实现出来也不是太难。</p>
+<h1 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h1><p>既然最终目标是gif图, 那么具体我们处理的步骤就有以下2步</p>
+<ol>
+<li>动作分割为独立的图片， 并保存</li>
+<li>图片整合， 以一个固定的时间间隔， 建立一个无限循环的gif图片流</li>
+</ol>
+<h2 id="首先是分割"><a href="#首先是分割" class="headerlink" title="首先是分割"></a>首先是分割</h2><p>既然都使用程序来跑了， 就没理由还要打开Photoshop软件一个一个找起始像素点了吧（=-=）  </p>
+<p>所以，我采取的做法是—扫描。<br>以宽度作为X轴, 从0开始， 按列（Y轴）扫描每一个像素点。只要当前Y轴出现了一个像素点不是透明的像素点， 就将此坐标作为一个动作的开始点； 然后继续扫描， 直到出现了一次整个Y轴都是透明的像素点， 将此坐标作为动作的结束坐标。</p>
+<p>上代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class SplitSprites &#123;</span><br><span class="line"></span><br><span class="line">    private String outputDir;</span><br><span class="line">    private int width;</span><br><span class="line">    //分割图片中最大的图片宽度</span><br><span class="line">    private int subImgMaxWidth;</span><br><span class="line">    private int height;</span><br><span class="line">    private List&lt;BufferedImage&gt; imagesAfterSplit = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    private Map&lt;Integer, Img&gt; allImgs = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    public SplitSprites(String spritesImgPath, String outputDir) throws IOException &#123;</span><br><span class="line">        this.bi = ImageIO.read(new File(spritesImgPath));</span><br><span class="line">        this.outputDir = outputDir;</span><br><span class="line">        this.width = bi.getWidth();</span><br><span class="line">        this.height = bi.getHeight();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List&lt;BufferedImage&gt; getImagesAfterSplit() &#123;</span><br><span class="line">        return imagesAfterSplit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //按列扫描， 只要不出现整列都是空白的， 认为是一张图。 记录起始和结束坐标， 得到图片大小并记录</span><br><span class="line">    public SplitSprites scanByCol() throws IOException &#123;</span><br><span class="line">        int currentImage = 0;</span><br><span class="line">        //是否在扫描着一副命中的图片</span><br><span class="line">        boolean in = false;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; width; i++) &#123;</span><br><span class="line">            boolean scanPx = false;</span><br><span class="line">            for (int i1 = 0; i1 &lt; height; i1++) &#123;</span><br><span class="line">                int rgb = bi.getRGB(i, i1);</span><br><span class="line">                scanPx = scanPx || (rgb != -1);</span><br><span class="line">                if (scanPx) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //兼容， 避免刚好最后一个像素点就是结束, 当最后一个x坐标的像素列扫描后scanPx仍为true， 设置其为false， 表示结束了</span><br><span class="line">            if (i == width - 1) &#123;</span><br><span class="line">                if (scanPx) &#123;</span><br><span class="line">                    scanPx = false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //表示前在扫描一个图片的，但是这次整列像素都是空白， 证明这幅图结束了。</span><br><span class="line">            if (in &amp;&amp; !scanPx) &#123;</span><br><span class="line">                in = false;</span><br><span class="line">                allImgs.get(currentImage).endX = i;</span><br><span class="line">                //计算分割图片的最大宽度</span><br><span class="line">                int temp = allImgs.get(currentImage).endX - allImgs.get(currentImage).startX;</span><br><span class="line">                if (temp &gt; subImgMaxWidth) &#123;</span><br><span class="line">                    subImgMaxWidth = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //未在扫描进行时， 扫描到一个非透明像素点，证明开始扫描下一幅图片了。</span><br><span class="line">            if (!in &amp;&amp; scanPx) &#123;</span><br><span class="line">                in = true;</span><br><span class="line">                currentImage += 1;</span><br><span class="line">                allImgs.put(currentImage, new Img());</span><br><span class="line">                allImgs.get(currentImage).startX = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;扫描到&quot; + allImgs.size() + &quot;张图片&quot;);</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    static class Img &#123;</span><br><span class="line">        private int startX;</span><br><span class="line">        private int endX;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>经过scanByCol() 操作， 变可得到所有动作的分割点和这个动作图片的宽度了。</p>
+<p>接下来， 进行分割， 分割方法代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public SplitSprites split() throws IOException &#123;</span><br><span class="line">    //以所有图片中最大宽度的图片， 并以此为标准进行保存</span><br><span class="line">    for (Entry&lt;Integer, Img&gt; entry : allImgs.entrySet()) &#123;</span><br><span class="line">        Img img = entry.getValue();</span><br><span class="line">        BufferedImage splitImg = expand(bi.getSubimage(img.startX, 0, img.endX - img.startX, height));</span><br><span class="line">        //ImageIO.write(splitImg, &quot;png&quot;, new File(outputDir + File.separator + entry.getKey() + &quot;.png&quot;));</span><br><span class="line">        imagesAfterSplit.add(splitImg);</span><br><span class="line">    &#125;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public SplitSprites save() throws IOException &#123;</span><br><span class="line">    for (int i = 0; i &lt; imagesAfterSplit.size(); i++) &#123;</span><br><span class="line">        BufferedImage bufferedImage = imagesAfterSplit.get(i);</span><br><span class="line">        ImageIO.write(bufferedImage, &quot;png&quot;, new File(outputDir + File.separator + i + &quot;.png&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以结束的像素点坐标，减去起始像素点的坐标， 变得到当前动作的宽度。</p>
+<p>至此， 变完成了图片动作分割的过程， 且不需要事先知晓每个动作的像素点坐标。</p>
+<h2 id="然后，-是图片宽度的扩展"><a href="#然后，-是图片宽度的扩展" class="headerlink" title="然后， 是图片宽度的扩展"></a>然后， 是图片宽度的扩展</h2><p>为了后面的整合为gif图片， 上面分割的图片的宽度和高度得一直才行， 但是这些动作的图片宽度并不相同。 所以，得改改上面的保存方法。   </p>
+<ol>
+<li>首先得到分割图片的最大那张图片的宽度和高度， 并以此作为扩展基础</li>
+<li>将原图片置于扩展的图片的居中</li>
+</ol>
+<p>总的代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line">public class SplitSprites &#123;</span><br><span class="line"></span><br><span class="line">private BufferedImage bi;</span><br><span class="line">    private String outputDir;</span><br><span class="line">    private int width;</span><br><span class="line">    //分割图片中最大的图片宽度</span><br><span class="line">    private int subImgMaxWidth;</span><br><span class="line">    private int height;</span><br><span class="line">    private List&lt;BufferedImage&gt; imagesAfterSplit = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    private Map&lt;Integer, Img&gt; allImgs = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    public SplitSprites(String spritesImgPath, String outputDir) throws IOException &#123;</span><br><span class="line">        this.bi = ImageIO.read(new File(spritesImgPath));</span><br><span class="line">        this.outputDir = outputDir;</span><br><span class="line">        this.width = bi.getWidth();</span><br><span class="line">        this.height = bi.getHeight();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List&lt;BufferedImage&gt; getImagesAfterSplit() &#123;</span><br><span class="line">        return imagesAfterSplit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //按列扫描， 只要不出现整列都是空白的， 认为是一张图。 记录起始和结束坐标， 得到图片大小并记录</span><br><span class="line">    public SplitSprites scanByCol() throws IOException &#123;</span><br><span class="line">        int currentImage = 0;</span><br><span class="line">        //是否在扫描着一副命中的图片</span><br><span class="line">        boolean in = false;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; width; i++) &#123;</span><br><span class="line">            boolean scanPx = false;</span><br><span class="line">            for (int i1 = 0; i1 &lt; height; i1++) &#123;</span><br><span class="line">                int rgb = bi.getRGB(i, i1);</span><br><span class="line">                scanPx = scanPx || (rgb != -1);</span><br><span class="line">                if (scanPx) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //兼容， 避免刚好最后一个像素点就是结束, 当最后一个x坐标的像素列扫描后scanPx仍为true， 设置其为false， 表示结束了</span><br><span class="line">            if (i == width - 1) &#123;</span><br><span class="line">                if (scanPx) &#123;</span><br><span class="line">                    scanPx = false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //表示前在扫描一个图片的，但是这次整列像素都是空白， 证明这幅图结束了。</span><br><span class="line">            if (in &amp;&amp; !scanPx) &#123;</span><br><span class="line">                in = false;</span><br><span class="line">                allImgs.get(currentImage).endX = i;</span><br><span class="line">                //计算分割图片的最大宽度</span><br><span class="line">                int temp = allImgs.get(currentImage).endX - allImgs.get(currentImage).startX;</span><br><span class="line">                if (temp &gt; subImgMaxWidth) &#123;</span><br><span class="line">                    subImgMaxWidth = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //未在扫描进行时， 扫描到一个非透明像素点，证明开始扫描下一幅图片了。</span><br><span class="line">            if (!in &amp;&amp; scanPx) &#123;</span><br><span class="line">                in = true;</span><br><span class="line">                currentImage += 1;</span><br><span class="line">                allImgs.put(currentImage, new Img());</span><br><span class="line">                allImgs.get(currentImage).startX = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;扫描到&quot; + allImgs.size() + &quot;张图片&quot;);</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public SplitSprites split() throws IOException &#123;</span><br><span class="line">        //以所有图片中最大宽度的图片， 并以此为标准进行保存</span><br><span class="line">        for (Entry&lt;Integer, Img&gt; entry : allImgs.entrySet()) &#123;</span><br><span class="line">            Img img = entry.getValue();</span><br><span class="line">            BufferedImage splitImg = expand(bi.getSubimage(img.startX, 0, img.endX - img.startX, height));</span><br><span class="line">            //ImageIO.write(splitImg, &quot;png&quot;, new File(outputDir + File.separator + entry.getKey() + &quot;.png&quot;));</span><br><span class="line">            imagesAfterSplit.add(splitImg);</span><br><span class="line">        &#125;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public SplitSprites save() throws IOException &#123;</span><br><span class="line">        for (int i = 0; i &lt; imagesAfterSplit.size(); i++) &#123;</span><br><span class="line">            BufferedImage bufferedImage = imagesAfterSplit.get(i);</span><br><span class="line">            ImageIO.write(bufferedImage, &quot;png&quot;, new File(outputDir + File.separator + i + &quot;.png&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private BufferedImage expand(BufferedImage image) &#123;</span><br><span class="line">        int currentWidth = image.getWidth();</span><br><span class="line">        if (subImgMaxWidth == currentWidth) &#123;</span><br><span class="line">            return image;</span><br><span class="line">        &#125;</span><br><span class="line">        //为了保持动作处于整个图片中心， 所以是同时往两部扩展</span><br><span class="line">        int start = (subImgMaxWidth - currentWidth) / 2;</span><br><span class="line"></span><br><span class="line">        BufferedImage newImage = new BufferedImage(subImgMaxWidth, image.getHeight(), BufferedImage.TYPE_INT_ARGB);</span><br><span class="line">        // 初始化的像素点设为透明</span><br><span class="line">        for (int i = 0; i &lt; newImage.getWidth(); i++) &#123;</span><br><span class="line">            for (int i1 = 0; i1 &lt; newImage.getHeight(); i1++) &#123;</span><br><span class="line">                newImage.setRGB(i, i1, -1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //将旧的图片流写入新的图片流</span><br><span class="line">        Graphics2D graphics2D = newImage.createGraphics();</span><br><span class="line">        graphics2D.drawImage(image, null, start, 0);</span><br><span class="line">        graphics2D.dispose();</span><br><span class="line"></span><br><span class="line">        return newImage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        SplitSprites ss = new SplitSprites(&quot;D:\\temp\\sprites.png&quot;, &quot;D:\\temp\\gif\\split&quot;).scanByCol().split().save();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    static class Img &#123;</span><br><span class="line"></span><br><span class="line">        private int startX;</span><br><span class="line">        private int endX;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>至此，完成了分割图片,结果如下：</p>
+<p><img src="/images/splitresult.png" alt="result"></p>
+<h2 id="最后，-是gif的图片的生成"><a href="#最后，-是gif的图片的生成" class="headerlink" title="最后， 是gif的图片的生成"></a>最后， 是gif的图片的生成</h2><p>gif图，就是以一定的速率播放一次或者多次的一组图片。每个图片作为帧。 这里就不详细叙述代码了， 相关的imageMeta属性在网上也能找到。</p>
+<p>至于这个速率的时间单位， 是1/100秒。 这里维基文档有说明， 大概意思就是： “一个动画 GIF 文件由许多图像块组成，每个图像块都有自己的控制块。控制块包括在移动到下一个图像之前图像应该显示多长时间（以 1/100 秒为单位”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">public class GifBuilder &#123;</span><br><span class="line"></span><br><span class="line">    private List&lt;BufferedImage&gt; images;</span><br><span class="line"></span><br><span class="line">    private String outputFilePath;</span><br><span class="line"></span><br><span class="line">    private boolean loop; //是否循环播放</span><br><span class="line"></span><br><span class="line">    private int delayTime; //帧的播放间隔</span><br><span class="line"></span><br><span class="line">    public GifBuilder(List&lt;BufferedImage&gt; images, boolean loop, int circleTime, String outputFilePath) &#123;</span><br><span class="line">        this.images = images;</span><br><span class="line">        this.loop = loop;</span><br><span class="line">        this.delayTime = circleTime;</span><br><span class="line">        this.outputFilePath = outputFilePath;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void build() throws IOException &#123;</span><br><span class="line">        ImageOutputStream iioStream =</span><br><span class="line">                ImageIO.createImageOutputStream(new FileOutputStream(outputFilePath));</span><br><span class="line">        ImageWriter writer =</span><br><span class="line">                ImageIO.getImageWritersByMIMEType(&quot;image/gif&quot;).next();</span><br><span class="line">        writer.setOutput(iioStream);</span><br><span class="line"></span><br><span class="line">        writer.prepareWriteSequence(null);</span><br><span class="line"></span><br><span class="line">        //将一组图片流进行整合</span><br><span class="line">        for (int i = 0; i &lt; images.size(); i++) &#123;</span><br><span class="line">            BufferedImage frame = images.get(i);</span><br><span class="line">            ImageTypeSpecifier type =</span><br><span class="line">                    ImageTypeSpecifier.createFromRenderedImage(frame);</span><br><span class="line">            IIOMetadata metadata = writer.getDefaultImageMetadata(type, null);</span><br><span class="line">            configureRootMetadata(metadata);</span><br><span class="line">            writer.writeToSequence(new IIOImage(frame, null, metadata), null);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        writer.endWriteSequence();</span><br><span class="line">        writer.dispose();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //设置每帧的属性</span><br><span class="line">    private void configureRootMetadata(IIOMetadata metadata) throws IIOInvalidTreeException &#123;</span><br><span class="line">        String metaFormatName = metadata.getNativeMetadataFormatName();</span><br><span class="line">        IIOMetadataNode root = (IIOMetadataNode) metadata.getAsTree(metaFormatName);</span><br><span class="line"></span><br><span class="line">        IIOMetadataNode graphicsControlExtensionNode = getNode(root, &quot;GraphicControlExtension&quot;);</span><br><span class="line">        graphicsControlExtensionNode.setAttribute(&quot;disposalMethod&quot;, &quot;none&quot;);</span><br><span class="line">        graphicsControlExtensionNode.setAttribute(&quot;userInputFlag&quot;, &quot;FALSE&quot;);</span><br><span class="line">        graphicsControlExtensionNode.setAttribute(&quot;transparentColorFlag&quot;, &quot;FALSE&quot;);</span><br><span class="line">        graphicsControlExtensionNode.setAttribute(&quot;delayTime&quot;, Integer.toString(delayTime)); //设置帧的速率</span><br><span class="line">        graphicsControlExtensionNode.setAttribute(&quot;transparentColorIndex&quot;, &quot;0&quot;);</span><br><span class="line"></span><br><span class="line">        IIOMetadataNode appExtensionsNode = getNode(root, &quot;ApplicationExtensions&quot;);</span><br><span class="line">        IIOMetadataNode child = new IIOMetadataNode(&quot;ApplicationExtension&quot;);</span><br><span class="line">        child.setAttribute(&quot;applicationID&quot;, &quot;NETSCAPE&quot;);</span><br><span class="line">        child.setAttribute(&quot;authenticationCode&quot;, &quot;2.0&quot;);</span><br><span class="line"></span><br><span class="line">        int loopContinuously = loop ? 0 : 1;</span><br><span class="line">        child.setUserObject(new byte[]&#123;0x1, (byte) (loopContinuously &amp; 0xFF), (byte) ((loopContinuously &gt;&gt; 8) &amp; 0xFF)&#125;);</span><br><span class="line">        appExtensionsNode.appendChild(child);</span><br><span class="line"></span><br><span class="line">        metadata.setFromTree(metaFormatName, root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private IIOMetadataNode getNode(IIOMetadataNode rootNode, String nodeName) &#123;</span><br><span class="line">        int nNodes = rootNode.getLength();</span><br><span class="line">        for (int i = 0; i &lt; nNodes; i++) &#123;</span><br><span class="line">            if (rootNode.item(i).getNodeName().equalsIgnoreCase(nodeName)) &#123;</span><br><span class="line">                return (IIOMetadataNode) rootNode.item(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        IIOMetadataNode node = new IIOMetadataNode(nodeName);</span><br><span class="line">        rootNode.appendChild(node);</span><br><span class="line">        return (node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>configureRootMetadata 方法关键的属性点就是delayTime和 setUserObject方法， 这两个方法是gif循环的关键</p>
+<p>生成gif</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">    SplitSprites ss = new SplitSprites(&quot;D:\\temp\\sprites.png&quot;, &quot;D:\\temp\\gif\\split&quot;).scanByCol().split().save();</span><br><span class="line">    new GifBuilder(ss.getImagesAfterSplit(), true, 20, &quot;D:\\temp\\gif\\test.gif&quot;).build(); // 大抵是200毫秒</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最终gif结果为：</p>
+<p><img src="/images/test.gif" alt="gif"></p>
+<p>代码地址： <a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/gifdemo">GIFDEMO</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/03/12/codingavoid/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/09/04/multiThread/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/24560998.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/main.gif" alt="leefVictor's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        tano254690663@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/09/">九月 2020<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;leefVictorBlog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({startOnLoad:true});
+        }
+    </script>
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.5 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
