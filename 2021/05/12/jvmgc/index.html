@@ -44,7 +44,7 @@
     
     <title>
         
-            标签: gif图片生成 | 
+            JVM 垃圾回收 （加深记忆） | 
         
         leefVictorBlog
     </title>
@@ -55,7 +55,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",JVM,GC">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -216,7 +216,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="leefVictorBlog">
-    <meta name="msapplication-starturl" content="https://leefvictor.github.io/tags/gif%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90/">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/05/12/jvmgc/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
@@ -231,13 +231,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://leefvictor.github.io/tags/gif%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90/">
+    <meta property="og:url" content="https://leefvictor.github.io/2021/05/12/jvmgc/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: gif图片生成 | leefVictorBlog">
+    <meta property="og:title" content="JVM 垃圾回收 （加深记忆） | leefVictorBlog">
     <meta property="og:image" content="/img/touxiang.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="JVM"> <meta property="og:article:tag" content="GC"> 
 
+    
+        <meta property="article:published_time" content="Wed May 12 2021 18:21:59 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 13 2021 16:08:39 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -245,13 +248,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://leefvictor.github.io/tags/gif%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90/index.html" />
+        <link rel="canonical" href="https://leefvictor.github.io/2021/05/12/jvmgc/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/05/12/jvmgc/index.html",
+    "headline": "JVM 垃圾回收 （加深记忆）",
+    "datePublished": "Wed May 12 2021 18:21:59 GMT+0800",
+    "dateModified": "Fri Aug 13 2021 16:08:39 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "leefVictor",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/main.gif"
+        },
+        "description": "We knew nothing, and we will knowing anything"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "leefVictorBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/touxiang.png"
+        }
+    },
+    "keywords": ",JVM,GC",
+    "description": "",
+}
+</script>
 
 
     
@@ -285,93 +318,303 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="post-toc-number">1.</span> <span class="post-toc-text">垃圾回收器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%88mark%E4%B8%80%E4%B8%8Bgc%E7%9A%84%E6%9C%AF%E8%AF%AD"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">先mark一下gc的术语</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%98%E6%B4%BB%E5%88%A4%E6%96%AD"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">存活判断</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">收集算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GC-%E8%A7%A6%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">GC 触发流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%B2%E8%A1%8C%E6%94%B6%E9%9B%86%E5%99%A8"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">串行收集器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B9%B6%E8%A1%8C%E6%94%B6%E9%9B%86%E5%99%A8"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">并行收集器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CMS"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">CMS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#G1"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">G1</span></a></li></ol></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 26 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2020/12/11/SplitSprites/">分割一个雪碧图</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            场景
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2020/12/11/SplitSprites/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/main.gif" width="44px" height="44px" alt="leefVictor's avatar">
-            </div>
-            <div>
-                <strong>leefVictor</strong>
-                <span>12月 11, 2020</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 26 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                JVM 垃圾回收 （加深记忆）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/main.gif" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>leefVictor</strong>
+        <span>5月 12, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/GC/" rel="tag">GC</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/JVM/" rel="tag">JVM</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JVM 垃圾回收 （加深记忆）&url=https://leefvictor.github.io/2021/05/12/jvmgc/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JVM 垃圾回收 （加深记忆）&url=https://leefvictor.github.io/2021/05/12/jvmgc/index.html&via=leefVictor" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/05/12/jvmgc/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/05/12/jvmgc/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>因为gc(garbage collect)问题日常开发中很少遇到（服务器资源大说话就是硬气）， 所以之前学习过的gc内容当前印象依然不多。以此作加深记忆用（温故而知新）</p>
+<h1 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h1><h2 id="先mark一下gc的术语"><a href="#先mark一下gc的术语" class="headerlink" title="先mark一下gc的术语"></a>先mark一下gc的术语</h2><ul>
+<li>部分收集（Partial GC）：垃圾手机并不是整一个heap，而是在对应的区域<ul>
+<li>新生代收集（Minor GC/Young GC）：发生在新生代的垃圾收集。</li>
+<li>老年代收集（Major GC/Old GC）：发生在新生代的垃圾收集。</li>
+</ul>
+</li>
+<li>混合收集（Mixed GC）：整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行为。</li>
+<li>整堆收集（Full GC）：整个Java堆和方法区的垃圾收集。</li>
+<li>并行（Parallel） ：gc在是多个GC 线程执行。</li>
+<li>串行（Serial）：gc只使用单个GC 线程执行。</li>
+<li>STW ：Stop The World（砸瓦鲁多） 串行时会使用， 因为是串行，所以在GC发生时，该线程会并暂停，待gc完毕后（耗时很短很短）， 继续执行。</li>
+</ul>
+<p>由于1.9后的jdk默认使用的是G1（Garbage First）回收器， 所以这里以1.9版本为分界线， 着重记忆前后默认的垃圾回收器。 在G1之前， jvm的垃圾回收往往不会单独使用一种回收器， 不同的jvm区域使用回收器不同。使用的vm参数不同， 使用的回收器也不同</p>
+<ol>
+<li>串行收集器 (Serial GC)</li>
+<li>并行收集器 (Parallel GC)</li>
+<li>并发标记清除CMS (Concurrent Mark and Sweep)</li>
+<li>G1 - Garbage First</li>
+</ol>
+<h3 id="存活判断"><a href="#存活判断" class="headerlink" title="存活判断"></a>存活判断</h3><p>jvm 判断对象是否存活有两种方式， 引用计数 和 可达性分析。</p>
+<p>引用计数: 每一个对象都有引用计数属性， 被引用时+1， 释放时-1， 计数器为0时， 可回收。 缺点， 无法解决对象互相循环的问题。</p>
+<p>可达性分析：<br>从GC Roots开始向下搜索。当一个对象到GC Roots存在引用时， 认为可达， 否则可回收。<br>GC Roots包括：</p>
+<ul>
+<li>虚拟机栈中引用的对象。</li>
+<li>方法区中类静态属性实体引用的对象。</li>
+<li>方法区中常量引用的对象。</li>
+<li>本地方法栈中JNI引用的对象。</li>
+</ul>
+<h3 id="收集算法"><a href="#收集算法" class="headerlink" title="收集算法"></a>收集算法</h3><ul>
+<li><p>标记 -清除<br>先标记非存活的对象， 在此次任务重，全部标记非存活对象后， 再进行清除<br>缺点：<br>  效率，标记和清除过程的效率都不高<br>  空间分配，由于非存活的对象并非处于一个连续的内存空间， 所以在标记清除后会产生大量不连续的内存碎片。</p>
+</li>
+<li><p>复制算法<br>在内存中划分两块大小相等的空间， 两者身份不同，记为A(from), B(to)。<br>每次正常的对象创建，都是使用A，B其中的一块内存。 当开始收集时（当前使用A, 身份是from），  将存活对象移到B， 再将A中的其他对象清除。 此时， A,B身份交换， A变为to， B变为from， 新建的对象都在B内存中， 等到下一次收集， B再移动到A， 身份互转。<br>这样使得每次都是对其中的一块进行内存回收，就不用考虑内存碎片问题。缺点则是需要额外耗费原本区域的空间</p>
+</li>
+</ul>
+<ul>
+<li>标记-压缩算法<br>当内存中对象每次收集时存活率都很高， 那么复制算法变很鸡肋， 两块内存的对象挪来挪去基本都没差， 而且还耗费了原本的内存空间， 也就是老年代的场景。 这时，便有人提出了另外一种“标记-整理”算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存， 就不会产生过多的碎片空间</li>
+</ul>
+<ul>
+<li>分代收集算法<br>把Java堆分为新生代和老年代，根据各个年代的特点采用最适当的收集算法。<br>在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。<br>而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记-清理”或“标记-整理”算法来进行回收。</li>
+</ul>
+<p><em>当知晓不存活的对象时， 便可进行收集回收</em></p>
+<h3 id="GC-触发流程"><a href="#GC-触发流程" class="headerlink" title="GC 触发流程"></a>GC 触发流程</h3><p><img src="/images/vmflow.png" alt="vmflow"></p>
+<h3 id="串行收集器"><a href="#串行收集器" class="headerlink" title="串行收集器"></a>串行收集器</h3><p>顾名思义， 单线程的gc， 不管程序是多少个线程在处理， 只要触发gc， 都是有一个线程处理收集和回收，回收期间， 其他处理线程都暂停，出现STW。也就是说， gc线程和处理线程并不是并行的， 而是在gc时， 只能有gc线程在跑。在但个cpu的硬件中性能尤为出色。</p>
+<h3 id="并行收集器"><a href="#并行收集器" class="headerlink" title="并行收集器"></a>并行收集器</h3><p>对比于串行收集器， 并行收集器的区别仅在于gc时是多个gc线程并行在跑， 可同时处理Eden和Old区的内存。但是两个区所使用的收集算法不同， Eden使用的是复制算法， Old则是标记整理。在GC时也会出现STW现象。</p>
+<h3 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h3><p>（1.9后不再是默认的垃圾收集器）<br>Concurrent Mark Sweep，并发标记清除，和上面两个收集器不同， cms是允许gc线程和用户线程同时并发进行的， 同时它又是以获取最短回收停顿时间为目标的收集器， 故在垃圾收集过程中用户并不会感到明显卡顿。 收集过程主要分为以下几步：</p>
+<ol>
+<li><p>初始标记 （CMS initial mark)：主要是标记 GC Root 开始的下级（注：仅下一级）对象，这个过程会 STW，但是跟 GC Root 直接关联的下级对象不会很多，因此这个过程其实很快。</p>
+</li>
+<li><p>并发标记 (CMS concurrent mark)：从初始标记的结果开始， 继续向下标识所有关联的对象，直到这条链上的最尽头。这个过程是多线程的，虽然耗时理论上会比较长，但是其它工作线程并不会阻塞，没有 STW。</p>
+</li>
+<li><p>重新标记（CMS remark）：顾名思义，就是要再标记一次。为啥还要再标记一次？因为第 2 步并没有阻塞其它工作线程，其它线程在标识过程中，很有可能会产生新的垃圾。</p>
+</li>
+<li><p>并发清除（CMS concurrent sweep）：清除线程执行， 因为是并发清除时，并不阻塞其它线程，故清理的过程中，仍然可能会有新垃圾对象产生，只能等到下一轮 GC，才会被清理掉。</p>
+</li>
+</ol>
+<p>CMS用的是”标记清除”， 而不是”标记整理”, 因为是gc线程和用户线程是并行处理的， 如果整理了， 会导致存活对象的内存地址发生变更， 从而影响了用户线程的工作</p>
+<h3 id="G1"><a href="#G1" class="headerlink" title="G1"></a>G1</h3><p>(1.9版本后的默认收集器)<br>其特点为：</p>
+<ol>
+<li><p>空间整合，G1收集器采用标记整理算法，不会产生内存空间碎片。分配大对象时不会因为无法找到连续空间而提前触发下一次GC。</p>
+</li>
+<li><p>可预测停顿，这是G1的另一大优势，降低停顿时间是G1和CMS的共同关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为N毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒，这几乎已经是实时Java（RTSJ）的垃圾收集器的特征了。</p>
+</li>
+</ol>
+<p>和之前的内存区域分代不同， 此前是将整个heap分成 Eden(年轻代) Old(老年代) Perm(持久代)。G1是将整个堆分为相等大小的独立区域（Region）， 这些区域可以是Eden， 也可以是Old，但不重叠，两者不再是物理隔阂，它们都是一部分（可以不连续）Region的集合。</p>
+<p><em>每个Region的大小可以通过参数-XX：G1HeapRegionSize设定，取值范围为1MB～32MB，且应为2的N次幂</em></p>
+<p>每个region都持有一个Remembered Set的属性（记忆集），记录本区域中所有对象引用对象所在的其他区域，所以，在进行可达性分析是， 不需要整个堆所有的Region都进行遍历。</p>
+<p>当Eden Region持有超过一定比例时，开始触发收集；分配一般对象时， 当所有的Region都达到了最大阈值且无法申请新的内存， 触发收集。</p>
+<p>G1的运行步骤：</p>
+<ul>
+<li>初始标记（Initial Marking）：STW，仅使用一条初始标记线程对所有与 GC Roots 直接关联的对象进行标记。</li>
+<li>并发标记（Concurrent Marking）：使用一条标记线程与用户线程并发执行。此过程进行可达性分析，速度很慢。</li>
+<li>再标记(Remark): 短暂停顿(STW)。 收集 并发标记阶段 产生新的垃圾(并发阶段和应用程序一同运行)；</li>
+<li>Copy/Clean up，多线程清除失活对象，会有STW。G1将回收区域的存活对象拷贝到新区域（Eden 和 Old Region都会如此操作）。</li>
+</ul>
+<p>在分配一般对象时， 当所有的Region都达到了最大阈值且无法申请新的内存， 触发YGC，已Eden和Survivor身份的Region进行复制算法。</p>
+<p><em>G1 一般来说是没有FGC的概念的。因为它本身不提供FGC的功能。而是使用MixedGC, MixedGC和YoungGC相同， 也使用了Survivor Region进行复制， 只是作用在Old Region, 且不是所有的Old Region</em></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/05/20/Consul-acl/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/04/27/dynamic-code/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -547,6 +790,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

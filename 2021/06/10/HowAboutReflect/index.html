@@ -240,7 +240,7 @@
 
     
         <meta property="article:published_time" content="Thu Jun 10 2021 15:49:37 GMT+0800">
-        <meta property="article:modified_time" content="Tue Aug 10 2021 17:56:09 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 12 2021 15:03:32 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -263,7 +263,7 @@
     "mainEntityOfPage": "https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html",
     "headline": "杂谈，其一",
     "datePublished": "Thu Jun 10 2021 15:49:37 GMT+0800",
-    "dateModified": "Tue Aug 10 2021 17:56:09 GMT+0800",
+    "dateModified": "Thu Aug 12 2021 15:03:32 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -510,7 +510,7 @@
 <p>这是最理想的的解决方案， 代码耦合关联低，各个实现维护各自的转换类，不会互相影响。</p>
 <h2 id="第二种，-利用反射"><a href="#第二种，-利用反射" class="headerlink" title="第二种， 利用反射"></a>第二种， 利用反射</h2><p>如果这些结果类是来着依赖包的， 非自行管理的。 像第一种的场景描述， 如果还要使用第一种方法， 那么针对这些依赖包的版本升降，并不能很好地兼容（反正就是极端环境， 极端到差不多非反射不可用的情况）。</p>
 <p>这种情况下， 通常做法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Result r = xxx;</span><br><span class="line">Class clz = r.getClass();</span><br><span class="line"></span><br><span class="line">if (clz instanceof AResult) &#123;</span><br><span class="line">    </span><br><span class="line">&#125; else if (clz instanceof BResult) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Result r = xxx;</span><br><span class="line">Class clz = r.getClass();</span><br><span class="line">//Method method = ReflectionHelper.getMethod()</span><br><span class="line">if (clz instanceof AResult) &#123;</span><br><span class="line">    </span><br><span class="line">&#125; else if (clz instanceof BResult) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>然后分别针对具体的值进行获取和设置， 期间对具体的field或者进行method进行 .setAccessible(true)。  </p>
 <p><em>（滑稽.jpg）不知道大家是不是如此， 还是只是我自己这么玩了</em></p>
@@ -671,7 +671,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/09/">九月 2020<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/09/">九月 2020<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
