@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.5 -->
+    <script>
+        window.materialVersion = "1.5.5"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            文档设计引导接口开发 | 
+        
+        leefVictorBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/touxiang.png">
+    <link rel="icon" href="/img/touxiang.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="leefVictorBlog">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/touxiang.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="文档设计引导接口开发 | leefVictorBlog">
+    <meta property="og:image" content="/img/touxiang.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Sat Oct 17 2020 14:33:12 GMT+0800">
+        <meta property="article:modified_time" content="Wed Aug 18 2021 15:40:14 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/index.html",
+    "headline": "文档设计引导接口开发",
+    "datePublished": "Sat Oct 17 2020 14:33:12 GMT+0800",
+    "dateModified": "Wed Aug 18 2021 15:40:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "leefVictor",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/main.gif"
+        },
+        "description": "We knew nothing, and we will knowing anything"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "leefVictorBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/touxiang.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%85%88"><span class="post-toc-number">1.</span> <span class="post-toc-text">设计优先</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenApi3-0%E6%A0%87%E5%87%86"><span class="post-toc-number">2.</span> <span class="post-toc-text">OpenApi3.0标准</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%A5%E5%B7%B2%E6%9C%89%E7%9A%84api%E6%96%87%E6%A1%A3%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86"><span class="post-toc-number">3.</span> <span class="post-toc-text">以已有的api文档进行路由管理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenApi-UI"><span class="post-toc-number">4.</span> <span class="post-toc-text">OpenApi UI</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 26 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                文档设计引导接口开发
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/main.gif" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>leefVictor</strong>
+        <span>10月 17, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=文档设计引导接口开发&url=https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=文档设计引导接口开发&url=https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/index.html&via=leefVictor" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2020/10/17/openAndDocAndWeb/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>springweb开发中， 开发一个api， 往往就是@RestController+@RequestMapping就完事了， 然后就是埋头写代码。这个api的参数，header， 媒体类型等等都没有明确的标示和限制。这就导致了对接人只能按照一个模糊的规范来对接，没有一个明确的标准。此外，这样写接口前后写的api文档也仅仅是一个文档，虽说也标明了要传递的参数对象， 但未必就能有一个完整的，统一的文档标准。</p>
+<h1 id="设计优先"><a href="#设计优先" class="headerlink" title="设计优先"></a>设计优先</h1><p>对外的接口往往不只是针对内部用户的， 也往往不会只使用一种ui展示。 比如， 目前项目使用小幺鸡管理api文档， 但是下次， 需要以swagger ui进行展示， 如果文档不是一个标准格式， 那么迁移就是一个大麻烦。<br><img src="/images/%E5%B0%8F%E5%B9%BA%E9%B8%A1.png" alt="小幺鸡">  <img src="/images/openApi.png" alt="openApi">  </p>
+<p>对比一下， 其实不难看出， 前者可以很明确的指出了大部分重要的接口参数， 但仍未全面， 如果有速率限制，或者 response header有特殊的标准， 是没有显式指出的。 后者则更全面， 基本上api的全部属性都可以在此标注， 而且这是一个国际标准（虽然看着这个配置很头大， 但相信我， 明白其中的含义之后眼界就会焕然一新）。</p>
+<p>此外，以一定标准订好的api文档作为指导，再进行编码， 会清晰很多。 不知道其他人的情况如何， 起码自己就经常在api设计之初， 很多容易忽略的点都能注意到， 但代码写得越深入， 就经常丢三落四（细节方面， 比如参数限制）， 并不是没有做笔记， 而是笔记很难顾及全面。</p>
+<p>但是， 先以一个普遍认可的标准， 设计好每一个接口文档， 包括参数类型， 长度， header， 返回类型， 请求速率限制，返回结果header等等， 那么在开发时， 逐步往下， 可以很清晰明了的知晓方向。</p>
+<h1 id="OpenApi3-0标准"><a href="#OpenApi3-0标准" class="headerlink" title="OpenApi3.0标准"></a>OpenApi3.0标准</h1><p><a target="_blank" rel="noopener" href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md">具体描述</a></p>
+<p>以一个标准的规范格式来描述具体属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">openapi: &quot;3.0.0&quot;</span><br><span class="line">info:</span><br><span class="line">  version: 1.0.0</span><br><span class="line">  title: Swagger Petstore</span><br><span class="line">  contact:</span><br><span class="line">    name: zijian</span><br><span class="line">    email: xxx@co.com</span><br><span class="line">  license:</span><br><span class="line">    name: MIT</span><br><span class="line">servers:</span><br><span class="line">  - url: http://&#123;domain&#125;:&#123;port&#125;/v1  # 可定义多个， 然后分别代指每个环境的url</span><br><span class="line">    description: develop</span><br><span class="line">    variables: # 对应上面的占位符的可选值设置</span><br><span class="line">      domain:</span><br><span class="line">        default: localhost</span><br><span class="line">        description: 域名</span><br><span class="line">      port:</span><br><span class="line">        enum:</span><br><span class="line">          - &#x27;8888&#x27;</span><br><span class="line">          - &#x27;80&#x27;</span><br><span class="line">          - &#x27;443&#x27;</span><br><span class="line">        default: &#x27;8888&#x27;</span><br><span class="line">        description: 默认端口</span><br><span class="line">paths:</span><br><span class="line">  /pet:</span><br><span class="line">    get:</span><br><span class="line">      summary: get  pet # 简要总结接口功能</span><br><span class="line">      operationId: getPet # 唯一字符标识， 全局唯一</span><br><span class="line">      tags:</span><br><span class="line">        - pets # 标签， 方便分类</span><br><span class="line">      parameters:</span><br><span class="line">        - name: id #参数名称</span><br><span class="line">          in: query #参数位置， 可选， query(?a=xxx) header path(/a/&#123;path&#125;/) cookie</span><br><span class="line">          description: 据id查询</span><br><span class="line">          required: true</span><br><span class="line">          deprecated: false # 是否被废弃</span><br><span class="line">          allowEmptyValue: false # 是否允许空参数， 仅在in = query时有效， 默认是false</span><br><span class="line">          schema: # 此参数的类型</span><br><span class="line">            type: integer</span><br><span class="line">            format: int32</span><br><span class="line">      responses: # 响应结果</span><br><span class="line">        &#x27;200&#x27;:</span><br><span class="line">          description: ok</span><br><span class="line">          headers:</span><br><span class="line">            header1:</span><br><span class="line">              description: header参数</span><br><span class="line">              schema:</span><br><span class="line">                type: string</span><br><span class="line">          content: # 响应体</span><br><span class="line">            application/json;charset=UTF-8: # 是json格式</span><br><span class="line">              schema:</span><br><span class="line">                $ref: &quot;#/components/schemas/Pet&quot; # 指向到components中自定义的Petscheme</span><br><span class="line">        default:</span><br><span class="line">          description: unexpected error</span><br><span class="line">          content:</span><br><span class="line">            application/json;charset=UTF-8:</span><br><span class="line">              schema:</span><br><span class="line">                type: string # 其他的状态码都是string类型</span><br><span class="line">  /pet/&#123;id&#125;:</span><br><span class="line">    get:</span><br><span class="line">      summary: get  pet # 简要总结接口功能</span><br><span class="line">      operationId: getPetWithPath # 唯一字符标识， 全局唯一</span><br><span class="line">      tags:</span><br><span class="line">        - pets # 标签， 方便分类</span><br><span class="line">      parameters:</span><br><span class="line">        - name: id #参数名称</span><br><span class="line">          in: path #参数位置， 可选， query(?a=xxx) header path(/a/&#123;path&#125;/) cookie</span><br><span class="line">          description: id</span><br><span class="line">          required: true</span><br><span class="line">          deprecated: false # 是否被废弃</span><br><span class="line">          allowEmptyValue: false # 是否允许空参数， 仅在in = query时有效， 默认是false</span><br><span class="line">          schema: # 此参数的类型</span><br><span class="line">            type: integer</span><br><span class="line">            format: int32</span><br><span class="line">      responses: # 响应结果</span><br><span class="line">        &#x27;200&#x27;:</span><br><span class="line">          description: ok</span><br><span class="line">          content: # 响应体</span><br><span class="line">            application/json;charset=UTF-8: # 是json格式</span><br><span class="line">              schema:</span><br><span class="line">                $ref: &quot;#/components/schemas/Pet&quot; # 指向到components中自定义的Petscheme</span><br><span class="line">        default:</span><br><span class="line">          description: unexpected error</span><br><span class="line">          content:</span><br><span class="line">            application/json;charset=UTF-8:</span><br><span class="line">              schema:</span><br><span class="line">                type: string # 其他的状态码都是string类型</span><br><span class="line">  /petWithForm:</span><br><span class="line">    post:</span><br><span class="line">      summary: get  pet # 简要总结接口功能</span><br><span class="line">      operationId: petWithForm # 唯一字符标识， 全局唯一</span><br><span class="line">      tags:</span><br><span class="line">        - pets # 标签， 方便分类</span><br><span class="line">      requestBody: # 如果要指定媒体类型， 都用这个属性</span><br><span class="line">        content:</span><br><span class="line">          multipart/form-data:</span><br><span class="line">            schema:</span><br><span class="line">              properties:</span><br><span class="line">                id:</span><br><span class="line">                  type: integer</span><br><span class="line">                # 其他类型的参数</span><br><span class="line">                #file:</span><br><span class="line">                #  type: string</span><br><span class="line">                #  format: binary</span><br><span class="line">                #array:</span><br><span class="line">                #  type: array</span><br><span class="line">                #  items:</span><br><span class="line">                #    type: string # 如果是一个类型， 也可以用$ref</span><br><span class="line">                #json:</span><br><span class="line">                #  type: object</span><br><span class="line">                #  properties:</span><br><span class="line">                #    c-id:</span><br><span class="line">                #      type: integer</span><br><span class="line">                #    c-name:</span><br><span class="line">                #      type: string</span><br><span class="line">      responses: # 响应结果</span><br><span class="line">        &#x27;200&#x27;:</span><br><span class="line">          description: ok</span><br><span class="line">          content: # 响应体</span><br><span class="line">            application/json;charset=UTF-8: # 是json格式</span><br><span class="line">              schema:</span><br><span class="line">                $ref: &quot;#/components/schemas/Pet&quot; # 指向到components中自定义的Petscheme</span><br><span class="line">        default:</span><br><span class="line">          description: unexpected error</span><br><span class="line">          content:</span><br><span class="line">            application/json;charset=UTF-8:</span><br><span class="line">              schema:</span><br><span class="line">                type: string # 其他的状态码都是string类型</span><br><span class="line">  /pet/create:</span><br><span class="line">    post:</span><br><span class="line">      summary: Create a pet</span><br><span class="line">      operationId: createPets</span><br><span class="line">      tags:</span><br><span class="line">        - pets</span><br><span class="line">      requestBody: # 需要用json进行请求</span><br><span class="line">        description: json 请求体结构</span><br><span class="line">        content:</span><br><span class="line">          application/json:</span><br><span class="line">            schema:</span><br><span class="line">              $ref: &quot;#/components/schemas/Pet&quot;</span><br><span class="line">      responses:</span><br><span class="line">        &#x27;201&#x27;:</span><br><span class="line">          description: Null response</span><br><span class="line">        default:</span><br><span class="line">          description: unexpected error</span><br><span class="line">          content:</span><br><span class="line">            application/json:</span><br><span class="line">              schema:</span><br><span class="line">                $ref: &quot;#/components/schemas/Error&quot;</span><br><span class="line">components: #api规范内的可重用组件，当没有被其他对象引用时， 这里的定义组件不影响现有结果， 其中的属性值命名需要符合 ^[a-zA-Z0-9\.\-_]+$</span><br><span class="line">  schemas:</span><br><span class="line">    Pet:</span><br><span class="line">      type: object</span><br><span class="line">      required:</span><br><span class="line">        - id</span><br><span class="line">        - name</span><br><span class="line">      properties:</span><br><span class="line">        id:</span><br><span class="line">          type: integer</span><br><span class="line">          format: int64</span><br><span class="line">        name:</span><br><span class="line">          type: string</span><br><span class="line">        tag:</span><br><span class="line">          type: string</span><br><span class="line">    Error:</span><br><span class="line">      type: object</span><br><span class="line">      required:</span><br><span class="line">        - code</span><br><span class="line">        - message</span><br><span class="line">      properties:</span><br><span class="line">        code:</span><br><span class="line">          type: integer</span><br><span class="line">          format: int32</span><br><span class="line">        message:</span><br><span class="line">          type: string</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="以已有的api文档进行路由管理"><a href="#以已有的api文档进行路由管理" class="headerlink" title="以已有的api文档进行路由管理"></a>以已有的api文档进行路由管理</h1><p>试想一下， 既然都已经编写好了这个openApi的文档， 如果还需要再一次手动编写路由是不是有点操蛋了。难道就不能自行根据文档进行路由的写入吗？ 当然有, 以上面的文档为标准， 下面举例说明其方法</p>
+<p>首先是vertx, vertx 官方就已提供了根据OpenApi生成路由的做法 <a target="_blank" rel="noopener" href="https://vertx.io/docs/vertx-web-openapi/java/">链接</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">//首先是主类， 因为配置的server增加了一个/v1/的path，所以通过设置子路由的方式便可实现 </span><br><span class="line"></span><br><span class="line">public class MainVerticle extends AbstractVerticle &#123;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public void start(Promise&lt;Void&gt; startPromise) &#123;</span><br><span class="line">    if (vertx == null) &#123;</span><br><span class="line">      vertx = Vertx.vertx();</span><br><span class="line">    &#125;</span><br><span class="line">    Router global = Router.router(vertx);</span><br><span class="line"></span><br><span class="line">    RouterBuilder.create(vertx, &quot;api.yaml&quot;, h -&gt; &#123;</span><br><span class="line">      if (h.failed()) &#123;</span><br><span class="line">        System.out.println(&quot;解析文档失败&quot;);</span><br><span class="line">        h.cause().printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">      RouterBuilder routerBuilder = h.result();</span><br><span class="line">      routeConf(routerBuilder);</span><br><span class="line">      Router router = routerBuilder.createRouter();</span><br><span class="line">      //设置一个前缀路由</span><br><span class="line">      global.mountSubRouter(&quot;/v1&quot;, router);</span><br><span class="line">      vertx.createHttpServer().requestHandler(global).listen(8888, http -&gt; &#123;</span><br><span class="line">        if (http.succeeded()) &#123;</span><br><span class="line">          startPromise.complete();</span><br><span class="line">          System.out.println(&quot;HTTP server started on port 8888&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          startPromise.fail(http.cause());</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //给每一个配置中的path注册handler</span><br><span class="line">  private static RouterBuilder routeConf(RouterBuilder routerBuilder)&#123;</span><br><span class="line">    //register pet api</span><br><span class="line">    for (PetPath value : PetPath.values()) &#123;</span><br><span class="line">      routerBuilder.operation(value.name()).handler(value.handler());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return routerBuilder;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    new MainVerticle().start(Promise.promise());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//以枚举的方式编写handler， 每个枚举的名称对应OpenApi文档中的operationId, 同时枚举是在jvm内都是单例的， 很好避免了实例创建的相关错误</span><br><span class="line">public enum PetPath &#123;</span><br><span class="line">  //如果有多个handler要处理， 且值需要传递， 那么可以用 routingcontext.put() 和 get()两个方法，</span><br><span class="line"></span><br><span class="line">  getPet() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Handler&lt;RoutingContext&gt; handler() &#123;</span><br><span class="line">      return r -&gt; &#123;</span><br><span class="line">        Integer id = Integer.parseInt(r.queryParam(&quot;id&quot;).get(0));</span><br><span class="line">        System.out.println(&quot;id is &quot; + id);</span><br><span class="line">        //已经在文档那里指定了contentType等属性， 就不需要自己再put了</span><br><span class="line">        r.response().end(&quot;&#123;\&quot;id\&quot;:&quot; + id + &quot;, \&quot;name\&quot;:\&quot;A\&quot;&#125;&quot;);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getPetWithPath() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Handler&lt;RoutingContext&gt; handler() &#123;</span><br><span class="line">      return r -&gt; &#123;</span><br><span class="line">        Integer id = Integer.parseInt(r.pathParam(&quot;id&quot;));</span><br><span class="line">        System.out.println(&quot;id is &quot; + id);</span><br><span class="line">        //已经在文档那里指定了contentType等属性， 就不需要自己再put了</span><br><span class="line">        r.response().end(&quot;&#123;\&quot;id\&quot;:&quot; + id + &quot;, \&quot;name\&quot;:\&quot;B\&quot;&#125;&quot;);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  createPets() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Handler&lt;RoutingContext&gt; handler() &#123;</span><br><span class="line">      return r -&gt; &#123;</span><br><span class="line">        Pet pet = Json.decodeValue(r.getBody(), Pet.class);</span><br><span class="line">        System.out.println(pet.getId());</span><br><span class="line">        System.out.println(pet.getName());</span><br><span class="line">        r.response().end(Json.encodePrettily(pet));</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  petWithForm() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Handler&lt;RoutingContext&gt; handler() &#123;</span><br><span class="line">      return r -&gt; &#123;</span><br><span class="line">        int id = Integer.parseInt(r.request().getFormAttribute(&quot;id&quot;));</span><br><span class="line">        //r.request().getHeader()</span><br><span class="line">        System.out.println(id);</span><br><span class="line">        //已经在文档那里指定了contentType等属性， 就不需要自己再put了</span><br><span class="line">        r.response().end(&quot;&#123;\&quot;id\&quot;:&quot; + id + &quot;, \&quot;name\&quot;:\&quot;C\&quot;&#125;&quot;);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  public abstract Handler&lt;RoutingContext&gt; handler();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class Pet &#123;</span><br><span class="line">  private int id;</span><br><span class="line">  private String name;</span><br><span class="line"></span><br><span class="line">  public int getId() &#123;</span><br><span class="line">    return id;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void setId(int id) &#123;</span><br><span class="line">    this.id = id;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public String getName() &#123;</span><br><span class="line">    return name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void setName(String name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>然后是spring的， 翻查了一下， spring官方并没有提供类似vertx相关的做法， 所以得借助一下第三方的插件 swagger-editor 和 maven的 generator</p>
+<p>首先， spring boot项目中引入以下依赖包和插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.openapitools&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;openapi-generator-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.1.0&lt;/version&gt;</span><br><span class="line">    &lt;executions&gt;</span><br><span class="line">      &lt;execution&gt;</span><br><span class="line">        &lt;goals&gt;</span><br><span class="line">          &lt;goal&gt;generate&lt;/goal&gt;</span><br><span class="line">        &lt;/goals&gt;</span><br><span class="line">        &lt;configuration&gt;</span><br><span class="line">          &lt;inputSpec&gt;</span><br><span class="line">            $&#123;project.basedir&#125;/src/main/resources/api.yaml</span><br><span class="line">          &lt;/inputSpec&gt;</span><br><span class="line">          &lt;generatorName&gt;spring&lt;/generatorName&gt;</span><br><span class="line">          //api 保存目录</span><br><span class="line">          &lt;apiPackage&gt;com.example.springstarter.api&lt;/apiPackage&gt; </span><br><span class="line">          //可重用组件保存目录</span><br><span class="line">          &lt;modelPackage&gt;com.example.springstarter.model&lt;/modelPackage&gt;</span><br><span class="line">          &lt;supportingFilesToGenerate&gt;</span><br><span class="line">            ApiUtil.java</span><br><span class="line">          &lt;/supportingFilesToGenerate&gt;</span><br><span class="line">          &lt;configOptions&gt;</span><br><span class="line">            &lt;delegatePattern&gt;true&lt;/delegatePattern&gt;</span><br><span class="line">          &lt;/configOptions&gt;</span><br><span class="line">        &lt;/configuration&gt;</span><br><span class="line">      &lt;/execution&gt;</span><br><span class="line">    &lt;/executions&gt;</span><br><span class="line">  &lt;/plugin&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>提示找不到类之类的错误不需要管， 这时， 在target/generated-sources目录下变能看到生成的代码， 将其拷贝到src目录下。</p>
+<p>可以看到<br><img src="/images/generator.png" alt="生成结果"><br>基本上是以委托模式生成代码， 打开PetApi 变可以看到已经将swagger的文档注解和spring的requestMapping注解已自动标识上<br><img src="/images/delegate.png" alt="delegate"> </p>
+<p>剩下需要做的， 仅仅是实现PetApiDelegate委托接口的逻辑。</p>
+<p>和vertx不同， 此方式是以OpenApi文档生成代码， 而vertx则是以OpenApi文档动态生成路由。</p>
+<h1 id="OpenApi-UI"><a href="#OpenApi-UI" class="headerlink" title="OpenApi UI"></a>OpenApi UI</h1><p><a target="_blank" rel="noopener" href="https://app.swaggerhub.com/">https://app.swaggerhub.com</a>  导入 api.yaml即可查看， 或者自己部署一个swagger-ui</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/12/11/SplitSprites/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/09/04/multiThread/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/24560998.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/main.gif" alt="leefVictor's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        tano254690663@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/09/">九月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;leefVictorBlog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({startOnLoad:true});
+        }
+    </script>
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.5 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":250,"height":420},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+    
+</html>
