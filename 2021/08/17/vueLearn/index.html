@@ -44,7 +44,7 @@
     
     <title>
         
-            杂谈，其一 | 
+            Vue 笔记 | 
         
         leefVictorBlog
     </title>
@@ -55,7 +55,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",反射,注意点,抽象方法">
+    <meta name="keywords" content="">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -216,7 +216,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="leefVictorBlog">
-    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/06/10/HowAboutReflect/">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/08/17/vueLearn/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
@@ -231,16 +231,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://leefvictor.github.io/2021/06/10/HowAboutReflect/">
+    <meta property="og:url" content="https://leefvictor.github.io/2021/08/17/vueLearn/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="杂谈，其一 | leefVictorBlog">
+    <meta property="og:title" content="Vue 笔记 | leefVictorBlog">
     <meta property="og:image" content="/img/touxiang.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="反射"> <meta property="og:article:tag" content="注意点"> <meta property="og:article:tag" content="抽象方法"> 
+    
 
     
-        <meta property="article:published_time" content="Thu Jun 10 2021 15:49:37 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 12 2021 15:03:32 GMT+0800">
+        <meta property="article:published_time" content="Tue Aug 17 2021 13:53:11 GMT+0800">
+        <meta property="article:modified_time" content="Thu Sep 02 2021 15:53:33 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -248,7 +248,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html" />
+        <link rel="canonical" href="https://leefvictor.github.io/2021/08/17/vueLearn/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -260,10 +260,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html",
-    "headline": "杂谈，其一",
-    "datePublished": "Thu Jun 10 2021 15:49:37 GMT+0800",
-    "dateModified": "Thu Aug 12 2021 15:03:32 GMT+0800",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/08/17/vueLearn/index.html",
+    "headline": "Vue 笔记",
+    "datePublished": "Tue Aug 17 2021 13:53:11 GMT+0800",
+    "dateModified": "Thu Sep 02 2021 15:53:33 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -281,7 +281,7 @@
             "url": "/img/touxiang.png"
         }
     },
-    "keywords": ",反射,注意点,抽象方法",
+    "keywords": "",
     "description": "",
 }
 </script>
@@ -347,7 +347,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%BA%E6%99%AF"><span class="post-toc-number">1.</span> <span class="post-toc-text">场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">第一种</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8E%A5%E5%8F%A3A%E5%AE%9A%E4%B9%89"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">接口A定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8A%BD%E8%B1%A1%E7%B1%BB%EF%BC%8C%E6%AF%8F%E4%B8%AA%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%BB%93%E6%9E%9C%E7%B1%BB%E9%83%BD%E7%BB%A7%E6%89%BF%E8%87%AA%E8%BF%99%E4%B8%AA%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">建一个抽象类，每个实现的结果类都继承自这个抽象类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E5%89%8D%E6%89%A7%E8%A1%8C"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">返回结果前执行</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%EF%BC%8C-%E5%88%A9%E7%94%A8%E5%8F%8D%E5%B0%84"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">第二种， 利用反射</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%89%E7%A7%8D%EF%BC%8C-Function-%EF%BC%8C-Consumer"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">第三种， Function ， Consumer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%A7%8D-%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%88%E5%9B%9B%E5%A4%A7%E5%A4%A9%E7%8E%8B%E8%BF%98%E6%9C%89%E4%BA%94%E4%B8%AA%E5%91%A2%EF%BC%89"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">第四种 装饰器（四大天王还有五个呢）</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="post-toc-number">1.</span> <span class="post-toc-text">建项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AF%BC%E5%85%A5-%E8%BF%90%E8%A1%8C"><span class="post-toc-number">2.</span> <span class="post-toc-text">导入,运行</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据绑定</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%87%E4%BB%A4"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">指令</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="post-toc-number">4.</span> <span class="post-toc-text">事件绑定</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95"><span class="post-toc-number">5.</span> <span class="post-toc-text">组件变量和方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Data"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Data</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8"><span class="post-toc-number">6.</span> <span class="post-toc-text">计算属性和侦听器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">计算属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BE%A6%E5%90%AC%E5%99%A8"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">侦听器</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81class-%E5%92%8C-style"><span class="post-toc-number">7.</span> <span class="post-toc-text">动态class 和 style</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="post-toc-number">8.</span> <span class="post-toc-text">条件渲染</span></a></li></ol>
     </ul>
     
 
@@ -379,7 +379,7 @@
         
     
             <p class="article-headline-p">
-                杂谈，其一
+                Vue 笔记
             </p>
         </div>
 
@@ -398,7 +398,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>leefVictor</strong>
-        <span>6月 10, 2021</span>
+        <span>8月 17, 2021</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -416,15 +416,6 @@
 
     <!-- Tags (bookmark) -->
     
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-none-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95/" rel="tag">抽象方法</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E6%B3%A8%E6%84%8F%E7%82%B9/" rel="tag">注意点</a>
-    </ul>
-    
 
     <!-- Share -->
     
@@ -439,7 +430,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=杂谈，其一&url=https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Vue 笔记&url=https://leefvictor.github.io/2021/08/17/vueLearn/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -448,7 +439,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=杂谈，其一&url=https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html&via=leefVictor" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Vue 笔记&url=https://leefvictor.github.io/2021/08/17/vueLearn/index.html&via=leefVictor" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -457,7 +448,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/08/17/vueLearn/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -466,7 +457,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/06/10/HowAboutReflect/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/08/17/vueLearn/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -491,61 +482,70 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>虽说反射的功能特性为java对象的操作提供了很大的便捷性。甚至让平常的单例使用方式都可以失效<a href="https://leefvictor.github.io/2021/05/30/singleTon/">look</a>, 但是反射的一些操作特性， 如果错误使用的话， 会导致不小的问题， 比如.setAccessible(true)， 改变了类原本的封装性， 如果目标对象是存在整个服务生命周期的单例，风险不可谓不小。</p>
-<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>试想一个场景， 一个接口A下10来个实现(每个实现返回的结果类都是不同的)。 现在有一个需求， 根据具体不同实现， 要针对这些返回结果做一些值的转换。   一般来说，直接在具体实现里面做转换（静态代码）是最优解（哪怕改动地方有点多）。</p>
-<p>但现在情况不同， 如下</p>
-<pre class="mermaid">graph TD
+        <p>对于js等已经有了解了， 只不过2年多没碰， 太嫌弃javafx， 偶尔自己做东西还是要有界面操作的， so， 学一下vue（记录容易忘记但十分基础的点）。</p>
+<h1 id="建项目"><a href="#建项目" class="headerlink" title="建项目"></a>建项目</h1><p>命令行打开执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue ui</span><br></pre></td></tr></table></figure>
 
-请求-->接口A处理-->其他公共方法1-->其他公共方法2-->根据不同实现类型进行转换-->返回</pre>
+<h1 id="导入-运行"><a href="#导入-运行" class="headerlink" title="导入,运行"></a>导入,运行</h1><p>终端执行  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+<p>完成包导入</p>
+<p>再度执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm run serve</span><br></pre></td></tr></table></figure>
+<p>于本地进行项目运行和debug</p>
+<p>或者直接在刚才建项目的ui上通过按钮启动</p>
+<h1 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h1>为数据绑定常用姿势， 只要prop这个属性值有所变化， 所绑定组件的内容也会跟着变化。 但vue也提供仅绑定一次数据的姿势， 那就是 v-once
 
-<p>那么这时， 直接在原来的实现内进行转换的方法变走不通了， 毕竟会影响到了两个公共方法的逻辑。而且要求是在处理完毕后返回前进行转换。</p>
-<p>然后， 根据使用场景有3种玩法。</p>
-<h2 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h2><p>如果接口A和返回结果类都是自己项目的， 而不是sdk或者其他封装包的（虽然说即使是封装包的也可以通过继承等方式，但这样并不好， 封装包的类结构不是由你定的， 除非你愿意为每个版本都维护一份兼容代码），so easy</p>
-<h3 id="接口A定义"><a href="#接口A定义" class="headerlink" title="接口A定义"></a>接口A定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface Serv &#123;</span><br><span class="line"></span><br><span class="line">    Result get();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//另外10个实现均只需要实现get方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;</span><br><span class="line">  &lt;span v-once&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;HelloWorld&#x27;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: String</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">div标签的内容随着msg值变化而不断变化， span的则是之后再初始化时绑定一次， 后续不在更新</span><br></pre></td></tr></table></figure>
 
-<h3 id="建一个抽象类，每个实现的结果类都继承自这个抽象类"><a href="#建一个抽象类，每个实现的结果类都继承自这个抽象类" class="headerlink" title="建一个抽象类，每个实现的结果类都继承自这个抽象类"></a>建一个抽象类，每个实现的结果类都继承自这个抽象类</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Result &#123;</span><br><span class="line">    //所有类都实现这个转换结果类</span><br><span class="line">    abstract void transResult();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="返回结果前执行"><a href="#返回结果前执行" class="headerlink" title="返回结果前执行"></a>返回结果前执行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Result result </span><br><span class="line">result.transResult();</span><br><span class="line">return result;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这是最理想的的解决方案， 代码耦合关联低，各个实现维护各自的转换类，不会互相影响。</p>
-<h2 id="第二种，-利用反射"><a href="#第二种，-利用反射" class="headerlink" title="第二种， 利用反射"></a>第二种， 利用反射</h2><p>如果这些结果类是来着依赖包的， 非自行管理的。 像第一种的场景描述， 如果还要使用第一种方法， 那么针对这些依赖包的版本升降，并不能很好地兼容（反正就是极端环境， 极端到差不多非反射不可用的情况）。</p>
-<p>这种情况下， 通常做法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Result r = xxx;</span><br><span class="line">Class clz = r.getClass();</span><br><span class="line">//Method method = ReflectionHelper.getMethod()</span><br><span class="line">if (clz instanceof AResult) &#123;</span><br><span class="line">    </span><br><span class="line">&#125; else if (clz instanceof BResult) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>然后分别针对具体的值进行获取和设置， 期间对具体的field或者进行method进行 .setAccessible(true)。  </p>
-<p><em>（滑稽.jpg）不知道大家是不是如此， 还是只是我自己这么玩了</em></p>
-<p>非是说这种做法不可取。但为了进行值设置， 要么对字段进行 setAccessible设置， 要么根据驼峰转换，找到 那个字段是set方法进行invoke（问题是，万一set方法和字段名称不是根据驼峰转换呢，甚至没规律呢，或者没有set方法呢， 对吧）。</p>
-<p>当然， 也不是说 setAccessible 这种做法有问题， 因为调用 setAccessible设置，的前提是你已经了解了这个类对象的结构了， 并不需要管哪些什么其他人调用了setAccessible会怎么样， 到了编辑代码这层， 非开发者不能。担心个头！</p>
-<p>只是这里提几句， 对局部变量这么玩， 没多大问题， 顶多就被怼一句性能的问题和破坏封装设计balabala的。</p>
-<p>但是（要说但是）：</p>
-<ol>
-<li>反射性能真的低吗？</li>
-<li>破坏封装性有影响吗？</li>
-</ol>
-<p>先说第二点， 有影响吗？有，但只存在于调用了setAccessible的那个method对象或者field对象， 重新新通过getDeclaredMethod获取的method/field对象的并不受前一个setAccessible影响</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">static class A &#123;</span><br><span class="line">    private String a;</span><br><span class="line">    private String b;</span><br><span class="line"></span><br><span class="line">    public String getA() &#123;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setA(String a) &#123;</span><br><span class="line">        this.a = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private String getB() &#123;</span><br><span class="line">        return b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setB(String b) &#123;</span><br><span class="line">        this.b = b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) throws NoSuchMethodException &#123;</span><br><span class="line">    A a = new A();</span><br><span class="line">    Class c = a.getClass();</span><br><span class="line">    Method method = c.getDeclaredMethod(&quot;getB&quot;);</span><br><span class="line">    method.setAccessible(true);</span><br><span class="line">    System.out.println(method.isAccessible());  //true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Method method2 = c.getDeclaredMethod(&quot;getB&quot;);</span><br><span class="line">    System.out.println(method2.isAccessible()); //false</span><br><span class="line"></span><br><span class="line">    System.out.println(method == method2); //false</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>所以， 每个method的setAccessible 并不会影响到已有类的封装， 所以只能说破坏了 具体对象的封装， 但类封装， 不可能！另外， 每次获取到的method都是不同的对象， 从源码我们就能看出来， 是一个新复制的对象<br><img src="/images/getmehtod.png" alt="method">  </p>
-<p>然后是第一点， 性能问题？ 当然有， 但并没有想象那么离谱， 如果是在一个高并发调用的场景， 就不要玩火了， 离线和并发不大时， 性能影响基本可以忽略。</p>
-<h2 id="第三种，-Function-，-Consumer"><a href="#第三种，-Function-，-Consumer" class="headerlink" title="第三种， Function ， Consumer"></a>第三种， Function ， Consumer</h2><p>Result 抽象类：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Result &#123;</span><br><span class="line">    //set 方法， 这里模拟一个setxxx方法</span><br><span class="line">    abstract void setXXX(Object obj);</span><br><span class="line"></span><br><span class="line">    abstract String withJson();</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>处理逻辑仍是使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//根据不同的类型处理并返回相应属性的值</span><br><span class="line">private static Object process()&#123;</span><br><span class="line">    Result r = xxx;</span><br><span class="line">    Class clz = r.getClass();</span><br><span class="line"></span><br><span class="line">    if (clz instanceof AResult) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125; else if (clz instanceof BResult) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;...</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>但值的设置则不然</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public static void response &#123;</span><br><span class="line">    Result result;</span><br><span class="line">    </span><br><span class="line">    trans(result, Result::setXXX);</span><br><span class="line">    </span><br><span class="line">    return result.withJson();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private static void trans(Result result, BiConsumer&lt;Result, Object&gt; consumer) &#123;</span><br><span class="line">    Object lastResult = process();</span><br><span class="line">    consumer.accept(result, lastResult);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>trans 如果多个属性值都要设置， 变更为一个list也可。</p>
-<h2 id="第四种-装饰器（四大天王还有五个呢）"><a href="#第四种-装饰器（四大天王还有五个呢）" class="headerlink" title="第四种 装饰器（四大天王还有五个呢）"></a>第四种 装饰器（四大天王还有五个呢）</h2><p><em>这是对结果类封装表达不满的最大抗议=-=</em>  </p>
-<p>装饰器模式， 属于在原来的对象类外再封装了一层， 同时覆盖所有的接口方法， 以到达扩展的作用（扩展方法等）， 但同时又不会影响对象类的结构。比如</p>
-<p>上面场景的结果抽象类如下，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Result &#123;</span><br><span class="line">    //xxxxx</span><br><span class="line">    //组装为json</span><br><span class="line">    abstract String withJson();</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>但因为是sdk的封装包， 不能直接改， 所以建一个抽象的装饰类， 同时实现 Result的抽象方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public abstract class ResultDecorator extends Result&#123;</span><br><span class="line"></span><br><span class="line">    Result result;</span><br><span class="line"></span><br><span class="line">    public ResultDecorator(Result result) &#123;</span><br><span class="line">        this.result = result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    String withJson() &#123;</span><br><span class="line">        return result.withJson();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//然后10个实现类的结果对象都分别建一个此装饰类的实现类。</span><br><span class="line"></span><br><span class="line">//原本返回响应结果的做法是</span><br><span class="line"></span><br><span class="line">Result result= xxx;</span><br><span class="line">return result.withJson();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//变更为</span><br><span class="line">Result result = xxx;</span><br><span class="line">ResultDecoratorX result = new ResultDecoratorX(xxx);</span><br><span class="line">return result.withJson();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这时，改动一下装饰器</span><br><span class="line">public abstract class ResultDecorator extends Result&#123;</span><br><span class="line"></span><br><span class="line">    Result result;</span><br><span class="line"></span><br><span class="line">    public ResultDecorator(Result result) &#123;</span><br><span class="line">        this.result = result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //转换逻辑</span><br><span class="line">    public abstract void trans();</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    String withJson() &#123;</span><br><span class="line">        trans();</span><br><span class="line">        return result.withJson();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这样一来， 即可自定义具体结果类的处理逻辑， 又不会大范围的改动处理逻辑， 还实现了每个结果不同的转换逻辑， 只需要在返回前使用装饰器转一下便可</span><br><span class="line">//而且每个装饰器如果不需要转换， 根本不需要实现其他逻辑， 直接return result.withJson()便可， 方便之极。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>双大括号的数据绑定不能使用在html标签内， 即标签attribute。如果要设置标签的attribute， 则需要用到v-bind  v-bind:attribute-name=””的方式， 也可简写为:attribute-name=””</p>
+<p>attribute绑定的三种形式：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:attr1=&quot;url&quot;/&gt;</span><br><span class="line"></span><br><span class="line">等价于</span><br><span class="line"></span><br><span class="line">&lt;div :attr1=&quot;url&quot;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">如果是动态参数， 即attr1的值是变量， 那么</span><br><span class="line"></span><br><span class="line">&lt;div :[attr1]=&quot;attr1value&quot;/&gt;</span><br><span class="line"></span><br><span class="line">attr1 和attr1value均是组件的property</span><br></pre></td></tr></table></figure>
 
 
+可以是js代码， 比如：
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">自增</span><br><span class="line">&#123;&#123; number + 1 &#125;&#125;</span><br><span class="line">三元表达式</span><br><span class="line">&#123;&#123; ok ? &#x27;YES&#x27; : &#x27;NO&#x27; &#125;&#125;</span><br><span class="line">字符串分割</span><br><span class="line">&#123;&#123; message.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;</span><br><span class="line">字符串拼接</span><br><span class="line">&lt;div v-bind:id=&quot;&#x27;list-&#x27; + id&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>比如：</p>
+<div v-if="show"></div>
+
+<p>当show为空值时， div标签将不展示</p>
+<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><p>一个按钮绑定click事件为例：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">有三种写法</span><br><span class="line">&lt;button v-on:click=&quot;fclick&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button @click=&quot;fclick&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">动态事件方法， eventName指的是事件类型， 作为组件的property传入， 比如click, focus，submit等事件， 还有鼠标点击， 焦点这些，而不是自定义的字符串</span><br><span class="line">&lt;button @[eventName]=&quot;fclick1&quot;&gt;按钮&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="组件变量和方法"><a href="#组件变量和方法" class="headerlink" title="组件变量和方法"></a>组件变量和方法</h1><h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><p>组件的data是一个函数， 类比于java的一个数据类， 它返回一个对象实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;MyButton&#x27;,</span><br><span class="line">  data() &#123;</span><br><span class="line">      return &#123; changeV : 0&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个方法中都可以用this.dataName来获取和设置值</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>利用组件的methods来向组件实例添加方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;MyButton&#x27;,</span><br><span class="line">  data() &#123;</span><br><span class="line">      return &#123; changeV : 0&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">      change()&#123;</span><br><span class="line">          this.changeV=Math.random()</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里多说明一下， 组件中的attribute和数据绑定均可直接调用方法， 比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p :title=&quot;change()&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;&#123;&#123;change()&#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="计算属性和侦听器"><a href="#计算属性和侦听器" class="headerlink" title="计算属性和侦听器"></a>计算属性和侦听器</h1><h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>部分标签展示内容是根据属性值的不同而展示不同的结果，那么可以使用计算属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123;caculate&#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;MyButton&#x27;,</span><br><span class="line">  data() &#123;</span><br><span class="line">      return &#123; changeV : Math.random()&#125;</span><br><span class="line">      </span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">      //计算属性</span><br><span class="line">      caculate()&#123;</span><br><span class="line">          return this.changeV &gt; 0.50 ? &quot;Yes&quot; : &quot;No&quot;</span><br><span class="line">      &#125;      </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通过上面方法的说明， 其实可以用 <em></em> 或者 **这样的操作。 但为什么不用呢? 按照官方的说法是， 计算属性只有在其使用到相关的数据变量变化是才会重新计算渲染。 加入一个页面组件有n个这样使用相同展示的标签， 如果使用js方法的形式， 那么每个p标签都会独立运行一遍…… 而计算属性不会， 是一个以缓存形式存在的计算后的结果值。</p>
+<p>computed默认是getter方法， 如果要定义setter方法(比如在其他方法或者组件要设置此属性)，可如下操作，将其更改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">      //计算属性</span><br><span class="line"></span><br><span class="line">     caculate:&#123;</span><br><span class="line">      get()&#123;</span><br><span class="line">          return this.changeV &gt; 0.50 ? &quot;Yes&quot; : &quot;No&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      set(newValue)&#123;</span><br><span class="line">          this.changeV = newValue</span><br><span class="line">      &#125;  </span><br><span class="line">     &#125;       </span><br><span class="line">  &#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">      change()&#123;</span><br><span class="line">         //直接赋值即会调用set方法</span><br><span class="line">          this.caculate=Math.random()</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="侦听器"><a href="#侦听器" class="headerlink" title="侦听器"></a>侦听器</h2><p>当需要监听数据值是否变化时， 且此监听过程为一个异步过程， 比如请求后端api等， 那么监听器就是一个很好的选择， 具体做法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;change&quot;&gt;change&lt;/button&gt;</span><br><span class="line">&lt;p&gt;&#123;&#123;changeV&#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;MyButton&#x27;,</span><br><span class="line">  props: &#123;</span><br><span class="line">      clickName:String,</span><br><span class="line">      show: Boolean</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">      return &#123; changeV : Math.random()&#125;</span><br><span class="line">      </span><br><span class="line">  &#125;</span><br><span class="line">  watch:&#123;</span><br><span class="line">    //如果要监听changeV变量， 那么这里就是命名为changeV(new, old), 需要同名，</span><br><span class="line">    //只要changeV数据发生了变化， 都会触发此监听</span><br><span class="line">    changeV(newV, oldV)&#123;</span><br><span class="line">        this.getResult(newV, oldV)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">      change()&#123;</span><br><span class="line">          this.changeV=Math.random()</span><br><span class="line">      &#125;,</span><br><span class="line">      getResult(newV, oldV)&#123;</span><br><span class="line">          //from backed, need to wait some time</span><br><span class="line">          console.log(newV);</span><br><span class="line">          console.log(oldV)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对比上面的计算属性和侦听器例子， 你会发现， 其实计算属性也是一个侦听器， 只要将get()方法改造为getResult()方法，从底层来说， 两者是一致的。甚至在写法上， 上面计算属性的更好。  </p>
+<h1 id="动态class-和-style"><a href="#动态class-和-style" class="headerlink" title="动态class 和 style"></a>动态class 和 style</h1><p>日常中常遇见标签的样式变换问题， 比如状态变更时。 可以利用计算属性的特性来操作， 如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button :id=&quot;dId&quot; :[attr1]=&quot;attr1value&quot; @click=&quot;changeclass&quot;&gt;按钮(class)&lt;/button&gt;</span><br><span class="line">  &lt;div :class=&quot;cc&quot;&gt;dynamic class&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;HelloWorld&#x27;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      toB: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  computed:&#123;</span><br><span class="line">    cc() &#123;</span><br><span class="line">      return &#123;&#x27;A&#x27;:!this.toB,&#x27;B&#x27;:this.toB&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    changeclass()&#123;</span><br><span class="line">      this.toB = !this.toB;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.A &#123;</span><br><span class="line">  color: aqua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.B &#123;</span><br><span class="line">  color: blue;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h1><p>类比于java的 if if-else if-else-if-else</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-if=&quot;type === &#x27;A&#x27;&quot;&gt;</span><br><span class="line">  A</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div v-else-if=&quot;type === &#x27;B&#x27;&quot;&gt;</span><br><span class="line">  B</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div v-else-if=&quot;type === &#x27;C&#x27;&quot;&gt;</span><br><span class="line">  C</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div v-else&gt;</span><br><span class="line">  Not A/B/C</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>这里要强调一点， v-show虽然也是条件渲染， 但v-show是会保留在DOM中的， 通俗点说就是能在浏览器上面看到被隐藏起来的源码， 而v-if不会， 它是重新渲染了组件。 可以说， v-show仅仅是针对了css中的display属性进行了切换。</p>
+<p>但同时， v-if对比于v-show, 性能花销想对多一点。</p>
+<p>官方提示： 不要在同一个标签内同时使用v-if和v-for</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;&quot; v-if=&quot;&quot;&gt; 错误的</span><br><span class="line"></span><br><span class="line">&lt;div v-for&gt;&lt;span v-if/&gt;&lt;/div&gt; 可以的</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
         
     
 
@@ -565,21 +565,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2021/06/11/mysqlIndex/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2021/05/30/singleTon/" id="post_nav-older" class="next-content">
+        <a href="/2021/08/13/LiuxCheetSheet/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
