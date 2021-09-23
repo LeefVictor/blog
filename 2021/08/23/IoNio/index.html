@@ -44,7 +44,7 @@
     
     <title>
         
-            mybatis的缓存知识点 | 
+            NIO理解加深 | 
         
         leefVictorBlog
     </title>
@@ -55,7 +55,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",mybatis,SQL缓存">
+    <meta name="keywords" content=",IO,NIO">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -216,7 +216,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="leefVictorBlog">
-    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/07/30/mybatis-cache/">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/08/23/IoNio/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
@@ -231,16 +231,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://leefvictor.github.io/2021/07/30/mybatis-cache/">
+    <meta property="og:url" content="https://leefvictor.github.io/2021/08/23/IoNio/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="mybatis的缓存知识点 | leefVictorBlog">
+    <meta property="og:title" content="NIO理解加深 | leefVictorBlog">
     <meta property="og:image" content="/img/touxiang.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="mybatis"> <meta property="og:article:tag" content="SQL缓存"> 
+    <meta property="og:article:tag" content="IO"> <meta property="og:article:tag" content="NIO"> 
 
     
-        <meta property="article:published_time" content="Fri Jul 30 2021 15:10:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Aug 30 2021 17:11:19 GMT+0800">
+        <meta property="article:published_time" content="Mon Aug 23 2021 17:37:58 GMT+0800">
+        <meta property="article:modified_time" content="Thu Sep 23 2021 20:13:53 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -248,7 +248,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://leefvictor.github.io/2021/07/30/mybatis-cache/index.html" />
+        <link rel="canonical" href="https://leefvictor.github.io/2021/08/23/IoNio/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -260,10 +260,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://leefvictor.github.io/2021/07/30/mybatis-cache/index.html",
-    "headline": "mybatis的缓存知识点",
-    "datePublished": "Fri Jul 30 2021 15:10:00 GMT+0800",
-    "dateModified": "Mon Aug 30 2021 17:11:19 GMT+0800",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/08/23/IoNio/index.html",
+    "headline": "NIO理解加深",
+    "datePublished": "Mon Aug 23 2021 17:37:58 GMT+0800",
+    "dateModified": "Thu Sep 23 2021 20:13:53 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -281,7 +281,7 @@
             "url": "/img/touxiang.png"
         }
     },
-    "keywords": ",mybatis,SQL缓存",
+    "keywords": ",IO,NIO",
     "description": "",
 }
 </script>
@@ -347,7 +347,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="post-toc-number">1.</span> <span class="post-toc-text">一级缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98key%E5%80%BC%E6%9E%84%E6%88%90"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">缓存key值构成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%E6%B8%85%E9%99%A4%E6%97%B6%E6%9C%BA"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">缓存清除时机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#update"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">update</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#commit-rollback"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">commit  rollback</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#query"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">query</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="post-toc-number">2.</span> <span class="post-toc-text">二级缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98%E5%8E%9F%E7%90%86"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">二级缓存原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">更新操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#commit-rollback-1"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">commit-rollback</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%A7%BB%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.</span> <span class="post-toc-text">数据移动问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NIO"><span class="post-toc-number">2.</span> <span class="post-toc-text">NIO</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NIO%E9%80%89%E6%8B%A9%E5%99%A8-selector"><span class="post-toc-number">3.</span> <span class="post-toc-text">NIO选择器 selector</span></a></li></ol>
     </ul>
     
 
@@ -379,7 +379,7 @@
         
     
             <p class="article-headline-p">
-                mybatis的缓存知识点
+                NIO理解加深
             </p>
         </div>
 
@@ -398,7 +398,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>leefVictor</strong>
-        <span>7月 30, 2021</span>
+        <span>8月 23, 2021</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -422,7 +422,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-none-link" href="/tags/SQL%E7%BC%93%E5%AD%98/" rel="tag">SQL缓存</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/mybatis/" rel="tag">mybatis</a>
+        <a class="post_tag-none-link" href="/tags/IO/" rel="tag">IO</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/NIO/" rel="tag">NIO</a>
     </ul>
     
 
@@ -439,7 +439,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=mybatis的缓存知识点&url=https://leefvictor.github.io/2021/07/30/mybatis-cache/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=NIO理解加深&url=https://leefvictor.github.io/2021/08/23/IoNio/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -448,7 +448,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=mybatis的缓存知识点&url=https://leefvictor.github.io/2021/07/30/mybatis-cache/index.html&via=leefVictor" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=NIO理解加深&url=https://leefvictor.github.io/2021/08/23/IoNio/index.html&via=leefVictor" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -457,7 +457,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/07/30/mybatis-cache/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/08/23/IoNio/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -466,7 +466,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/07/30/mybatis-cache/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/08/23/IoNio/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -491,76 +491,39 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>mybatis 作为spring项目中常用的db操作框架， 有必要了解它的两级缓存机制，以及缓存作用的范围和生命周期。</p>
-<h1 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h1><p>一级缓存是作用在Executor执行器中，每一个SQL 会话都有一个Executor，这个Executor中会持有一个localCache, 当发起查询时，会优先在localCache中进行检索， 命中直接返回，没有命中则进行db查询。这个localcache是仅在这一次会话中生效。</p>
-<p>从BaseExecutor源码中可明显地看到这一点：</p>
-<p><img src="/images/mybatis-cache-source.png" alt="source-1"></p>
-<p>一级缓存是默认开启的， 我们可对一级缓存的操作也只有配置其作用范围：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 默认值为session， 可选值为 statement</span><br><span class="line">mybatis.configuration.local-cache-scope=</span><br></pre></td></tr></table></figure>
-<p>官方文档对其解析为：<br>mybatis 使用本地缓存来防止循环引用并加快重复嵌套查询。默认情况下 (SESSION) 在会话期间执行的所有查询都被缓存。如果 localCacheScope=STATEMENT 本地会话将仅用于语句执行，则不会在对同一 SqlSession 的两个不同调用之间共享数据。</p>
-<h2 id="缓存key值构成"><a href="#缓存key值构成" class="headerlink" title="缓存key值构成"></a>缓存key值构成</h2><p>先看源码</p>
-<p><img src="/images/keycreate.png" alt="key-create"></p>
-<p>每个queryCache都由mapperId + sql + 查询偏移 + limit + where 参数 + 多环境数据库配置（如果有）组成， 只有这些属性均相同时， 才会从缓存返回数据。<br>另外， localCached的类PerpetualCache的cache属性也仅仅是一个HashMap。故，map的key也就是上面属性对象的hashcode。</p>
-<p><em>所以，即使是读写分离， 多个读db的前提下， 相同的db结构， 也不会使用到相同的缓存。</em></p>
-<h2 id="缓存清除时机"><a href="#缓存清除时机" class="headerlink" title="缓存清除时机"></a>缓存清除时机</h2><p>虽说这个缓存是跟随着SQL session的生命周期的， session关闭了， 缓存自然而然就被回收了。但是， 我们做开发， 经常碰到的情况是同时执行好几个语句， 增删改查都有， 在同一个事务中完成。 那么问题来了， 在同一个会话中</p>
+        <p>从网上大多博客都能看到这两者的区别点：</p>
 <ul>
-<li>‘select id, name from table where birth &gt; ? limit 10 ‘ 缓存了数据</li>
-<li>delete from table where id = 19;</li>
-<li>‘select id, name from table where birth &gt; ? limit 10 ‘ 是读第一步缓存的数据？</li>
+<li>IO 面向流， NIO面向缓存区</li>
+<li>IO 不可用移动流中的数据， NIO可以移动缓冲区的数据</li>
+<li>IO 是阻塞的， NIO是非阻塞的。</li>
 </ul>
-<p>答案： 不是。</p>
-<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><p><img src="/images/batis-update.png" alt="update"></p>
-<p>做法很粗暴， 直接在更新前就干掉了整个Executor的缓存。</p>
-<h3 id="commit-rollback"><a href="#commit-rollback" class="headerlink" title="commit  rollback"></a>commit  rollback</h3><p><img src="/images/commit-rollback.png" alt="cr"></p>
-<p>同update操作的里， 只要有push到db的操作，不管是成功还是失败， 也是干掉整个Executor的缓存</p>
-<p>所以， 基本上， 只要不是查询操作， 缓存的影响基本是不存在的。</p>
-<h3 id="query"><a href="#query" class="headerlink" title="query"></a>query</h3><p><img src="/images/batis-query.png" alt="update"></p>
-<p>从方法调用往上找， 可以找到在doQuery时， 也会有清除缓存的操作， 一个是整个会话的sql栈调用完毕， 一个是配置了一级缓存的作用范围。</p>
-<p>所以， 最后说一下一级缓存的结论：</p>
-<ol>
-<li>可通过 <em>local-cache-scope</em>配置其作用范围是 SQL会话还是单个语句查询STATMENT</li>
-<li>执行db写数据的操作前， 会先清理掉已有的一级缓存</li>
-<li>一级缓存内部仅仅是一个hashmap， 没有大小，容量等限制</li>
-<li>一级缓存的最大范围是会话级别， 所以多个会话下， 或者 分布式环境下， 读，写高并发时有可能出现脏数据， 可以根据使用环境不同将<em>local-cache-scope</em>设置为STATEMENT</li>
-</ol>
-<h1 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h1><p>从一级缓存的缓存key组成来看， 即使是读写分离， 多个读db的前提下， 相同的db结构， 也不会使用到相同的缓存， 这一点是一个很大的浪费， 毕竟读写分离的前提下， 数据同步是有主从数据库进行管理， 作为调用方式不需要对这些进行考虑的；且多个操作会话/分布式环境时有可能出现脏数据。</p>
-<p>这时候， 可以考虑使用二级缓存。 首先， 是开启二级缓存的相关配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mybatis.configuration.cache-enabled=true</span><br></pre></td></tr></table></figure>
+<p>这些区别点从概念上理解还是让人有点模糊。所以， 便尝试加以代码和数据结果辅助理解。</p>
+<h1 id="数据移动问题"><a href="#数据移动问题" class="headerlink" title="数据移动问题"></a>数据移动问题</h1><p>IO中， 如果要同时对一个文件进行读和写操作， 只能各自维护一个输出流和输入流。流的分工和职责很明确。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class IO &#123;</span><br><span class="line"></span><br><span class="line">    public static final String fileName = &quot;D:\\temp\\io.txt&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws IOException, InterruptedException &#123;</span><br><span class="line">        IO io = new IO();</span><br><span class="line">        io.read();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void write() throws IOException, InterruptedException &#123;</span><br><span class="line">        File file = new File(fileName);</span><br><span class="line">        BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(file, true));//设置以追加形式写入</span><br><span class="line">        out.write(&quot;#write#&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">        out.flush();</span><br><span class="line">        out.close();</span><br><span class="line">        System.out.println(&quot;write close&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void read() throws IOException, InterruptedException &#123;</span><br><span class="line">        File file = new File(fileName);</span><br><span class="line">        BufferedInputStream bin = new BufferedInputStream(new FileInputStream(file));</span><br><span class="line">        byte[] bytes = new byte[1024];</span><br><span class="line">        int len = 0;</span><br><span class="line">        //每次调用了read， 输入流中的pos都是一个变化过程， 且不可用对其进行设置。（pos就是相当于流中的字节读取位置）</span><br><span class="line">        while ((len = bin.read(bytes)) != -1)&#123;</span><br><span class="line">            //这里指定输出的长度， 避免把byte中空元素也进行了输出</span><br><span class="line">            System.out.println(new String(bytes, 0, len, StandardCharsets.UTF_8));</span><br><span class="line">        &#125;</span><br><span class="line">        bin.close();</span><br><span class="line">        System.out.println(&quot;read close&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="二级缓存原理"><a href="#二级缓存原理" class="headerlink" title="二级缓存原理"></a>二级缓存原理</h2><p>从DefaultSqlSessionFactory.openSessionFromDataSource方法往下追踪， 可以看到<br><img src="/images/cache-executor.png" alt="cache-executor"></p>
-<p>只要开启了配置， 就创建一个CachingExecutor, CachingExecutor就是一个装饰器。</p>
+
+<p>区别点钟的“IO中流的数据不可用移动”就是这么一个意思， 也就是说， 在读取过程中， 突然想重新获取前面的数据， 就做不到直接从流中读取。NIO则不然， 因为它引入了缓冲区的概念。 缓冲区Buffer 提供了position的设置方法。 先来了解缓冲区的两个指标。</p>
 <ul>
-<li>CacheKey的生成， 仍然以被装饰的Executor为主</li>
-<li>具体的DB操作， 仍以被装饰的Executor为主</li>
-<li>更新、commit、rollbac时， 对缓存的操作和baseExecutor不相同， 因为作用范围没有限制， 除了因为insert/update/delete等操作进行commit之后，缓存基本不会进行清除或者更新</li>
+<li><p>position 可以类比数组的长度， 区别就是它是可以变动的， 每次写入数据和读取数据都会变动， 即下一个要操作的数据的位置</p>
+</li>
+<li><p>limit  下一个不可用操作的数据的位置</p>
+</li>
 </ul>
-<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public int update(MappedStatement ms, Object parameterObject) throws SQLException &#123;</span><br><span class="line">  flushCacheIfRequired(ms);</span><br><span class="line">  return delegate.update(ms, parameterObject);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void flushCacheIfRequired(MappedStatement ms) &#123;</span><br><span class="line">  Cache cache = ms.getCache();</span><br><span class="line">  if (cache != null &amp;&amp; ms.isFlushCacheRequired()) &#123;</span><br><span class="line">    tcm.clear(cache);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer buffer = ByteBuffer.allocate(1024); //建一个容量是1024的字节缓冲区</span><br><span class="line"></span><br><span class="line">//初始化的时候limit = 缓冲区大小</span><br><span class="line">buffer.put(&quot;1&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">System.out.println(buffer.position());  //1</span><br><span class="line">System.out.println(buffer.limit());     //1024</span><br><span class="line"></span><br><span class="line">buffer.put(&quot;23456789&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">System.out.println(buffer.position());  //9</span><br><span class="line">System.out.println(buffer.limit());     //1024</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;###################&quot;);</span><br><span class="line">//输出整个buffer, 因为一直put操作， position就是实际数据的长度</span><br><span class="line">System.out.println(new String(buffer.array(), 0, buffer.position())); //123456789</span><br><span class="line"></span><br><span class="line">//array()不会改变position的位置</span><br><span class="line">System.out.println(buffer.position());  //9</span><br><span class="line">//get(具体下标)也不会改变position的位置</span><br><span class="line">System.out.println((char)buffer.get(1));//2</span><br><span class="line"></span><br><span class="line">//get()会让position位置+1，</span><br><span class="line">System.out.println((char) buffer.get()); //因为9后面是空元素了， 输出乱码</span><br><span class="line"></span><br><span class="line">System.out.println(buffer.position());  //10</span><br><span class="line">System.out.println(buffer.limit());     //1024</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;###################&quot;);</span><br><span class="line"></span><br><span class="line">buffer.flip();//将limit变成position的值, position变成起始下标</span><br><span class="line">System.out.println(new String(buffer.array(), buffer.position(), buffer.limit())); //123456789加一个乱码字符</span><br><span class="line">System.out.println(buffer.position());  //0</span><br><span class="line">System.out.println(buffer.limit());     //10</span><br><span class="line"></span><br><span class="line">buffer.position(1);</span><br><span class="line">System.out.println(new String(buffer.array(), buffer.position(), buffer.limit() - buffer.position()));//23456789加一个乱码字符</span><br><span class="line">System.out.println(buffer.position());  //1</span><br><span class="line">System.out.println(buffer.limit());     //10</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;###################&quot;);</span><br><span class="line">buffer.position(6);</span><br><span class="line">buffer.limit(8);</span><br><span class="line">System.out.println(new String(buffer.array(), buffer.position(), buffer.limit() - buffer.position()));//78</span><br><span class="line">System.out.println(buffer.position());  //6</span><br><span class="line">System.out.println(buffer.limit());     //8</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;###################&quot;);</span><br><span class="line">buffer.position(1);</span><br><span class="line">buffer.limit(10);</span><br><span class="line">buffer.put(&quot;a&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">System.out.println(new String(buffer.array(), 0, buffer.limit()));//1a3456789加一个乱码字符, 覆盖了2</span><br><span class="line">System.out.println(buffer.position());  //2</span><br><span class="line">System.out.println(buffer.limit());     //10</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>flushCacheIfRequired 指的是检查是否需要更新缓存。 当存在缓存时， 进行清除</p>
-<h3 id="commit-rollback-1"><a href="#commit-rollback-1" class="headerlink" title="commit-rollback"></a>commit-rollback</h3><p>CachingExecutor.class</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void commit(boolean required) throws SQLException &#123;</span><br><span class="line">  delegate.commit(required); </span><br><span class="line">  tcm.commit(); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void rollback(boolean required) throws SQLException &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    delegate.rollback(required);</span><br><span class="line">  &#125; finally &#123;</span><br><span class="line">    if (required) &#123;</span><br><span class="line">      tcm.rollback();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>从上面的例子结果可以知晓， 缓冲区操作数据很灵活，由position和limit两个指标可以灵活操作缓冲区的数据的读取和写入。大致图示：</p>
+<p><img src="/images/buffer.PNG" alt="buffer"></p>
+<p>另外， buffer还有一个压缩和清除的方法， 压缩是指将当前未读的数据迁移到数组0下标开始后的位置， 并覆盖该下标数组的数据。 而清除， 就是清空缓冲区， 变为初始化时的状态。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer buffer = ByteBuffer.allocate(1024);</span><br><span class="line"></span><br><span class="line">//初始化的时候limit = 缓冲区大小</span><br><span class="line">buffer.put(&quot;1&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">System.out.println(buffer.position());  //1</span><br><span class="line">System.out.println(buffer.limit());     //1024</span><br><span class="line"></span><br><span class="line">buffer.put(&quot;23456789&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">System.out.println(buffer.position());  //9</span><br><span class="line">System.out.println(buffer.limit());     //1024</span><br><span class="line"></span><br><span class="line">buffer.position(0);</span><br><span class="line">buffer.get(); //position 是 1</span><br><span class="line">buffer.get(); //position 是 2</span><br><span class="line"></span><br><span class="line">buffer.compact(); //进行压缩， position是0， 且2-9下标的数据迁移到0下标的后面了</span><br><span class="line">System.out.println(new String(buffer.array(), 0, 9)); //3456789</span><br><span class="line"></span><br><span class="line">buffer.clear();</span><br><span class="line">System.out.println(buffer.position()); //0</span><br><span class="line">System.out.println(buffer.limit()); //1024</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-<p>TransactionalCache.class</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public void commit() &#123;</span><br><span class="line">    if (clearOnCommit) &#123;</span><br><span class="line">      delegate.clear();</span><br><span class="line">    &#125;</span><br><span class="line">    flushPendingEntries();</span><br><span class="line">    reset();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void rollback() &#123;</span><br><span class="line">    unlockMissedEntries(); //rollback时清除缓存了</span><br><span class="line">    reset();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private void reset() &#123;</span><br><span class="line">    clearOnCommit = false;</span><br><span class="line">    entriesToAddOnCommit.clear();</span><br><span class="line">    entriesMissedInCache.clear();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private void flushPendingEntries() &#123;</span><br><span class="line">    for (Map.Entry&lt;Object, Object&gt; entry : entriesToAddOnCommit.entrySet()) &#123;</span><br><span class="line">      delegate.putObject(entry.getKey(), entry.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">    for (Object entry : entriesMissedInCache) &#123;</span><br><span class="line">      if (!entriesToAddOnCommit.containsKey(entry)) &#123;</span><br><span class="line">        delegate.putObject(entry, null);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  private void unlockMissedEntries() &#123;</span><br><span class="line">    for (Object entry : entriesMissedInCache) &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        delegate.removeObject(entry);</span><br><span class="line">      &#125; catch (Exception e) &#123;</span><br><span class="line">        log.warn(&quot;Unexpected exception while notifying a rollback to the cache adapter. &quot;</span><br><span class="line">            + &quot;Consider upgrading your cache adapter to the latest version. Cause: &quot; + e);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>从上面源码可以看得到， 当commit和rollback操作时， cache也是使用了commit和rollback这两个方法。 二级缓存在commit操作时， 也仅仅是存在一个类似待提交状态的map中， 只有被装饰的executor真正commit时， 才将这些个待提交的对象写入缓存。</p>
-<p>同时， 还有一个namespace属性的注解@CacheNamespace， 关于这个配置生效的地方， 可以查看 org.apache.ibatis.builder.MapperBuilderAssistant#useCacheRef 和 org.apache.ibatis.builder.MapperBuilderAssistant#useNewCache</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public Cache useCacheRef(String namespace) &#123;</span><br><span class="line">    if (namespace == null) &#123;</span><br><span class="line">      throw new BuilderException(&quot;cache-ref element requires a namespace attribute.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    try &#123;</span><br><span class="line">      unresolvedCacheRef = true;</span><br><span class="line">      Cache cache = configuration.getCache(namespace);</span><br><span class="line">      if (cache == null) &#123;</span><br><span class="line">        // 从这里可以看出， 基本上缓存就是以namespace作为范围进行划分的</span><br><span class="line">        throw new IncompleteElementException(&quot;No cache for namespace &#x27;&quot; + namespace + &quot;&#x27; could be found.&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">      currentCache = cache;</span><br><span class="line">      unresolvedCacheRef = false;</span><br><span class="line">      return cache;</span><br><span class="line">    &#125; catch (IllegalArgumentException e) &#123;</span><br><span class="line">      throw new IncompleteElementException(&quot;No cache for namespace &#x27;&quot; + namespace + &quot;&#x27; could be found.&quot;, e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  public Cache useNewCache(Class&lt;? extends Cache&gt; typeClass,</span><br><span class="line">      Class&lt;? extends Cache&gt; evictionClass,</span><br><span class="line">      Long flushInterval,</span><br><span class="line">      Integer size,</span><br><span class="line">      boolean readWrite,</span><br><span class="line">      boolean blocking,</span><br><span class="line">      Properties props) &#123;</span><br><span class="line">    Cache cache = new CacheBuilder(currentNamespace)</span><br><span class="line">        .implementation(valueOrDefault(typeClass, PerpetualCache.class))</span><br><span class="line">        .addDecorator(valueOrDefault(evictionClass, LruCache.class))</span><br><span class="line">        .clearInterval(flushInterval)</span><br><span class="line">        .size(size)</span><br><span class="line">        .readWrite(readWrite)</span><br><span class="line">        .blocking(blocking)</span><br><span class="line">        .properties(props)</span><br><span class="line">        .build();</span><br><span class="line">    configuration.addCache(cache); //这里进行Cache对象的创建</span><br><span class="line">    currentCache = cache;</span><br><span class="line">    return cache;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>图示：</p>
+<p><img src="/images/buffercompact.png" alt="buffercompact"></p>
+<h1 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h1><p>从上面缓冲区的描述， 便可理解nio的缓冲区对数据操作的灵活性。关于阻塞问题， 这个是一个底层的实现， 也不知道如何用代码理解， 便先放一放。 这时， 来对比一下io和nio读写的问题。<br>io的读写需要各自维护各自的流。 而nio得益于filechannel， 可以同时对filechannel进行读和写的操作。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class NIO &#123;</span><br><span class="line"></span><br><span class="line">    public static final String fileName = &quot;D:\\temp\\nio.txt&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        RandomAccessFile file = new RandomAccessFile(fileName, &quot;rw&quot;);</span><br><span class="line">        FileChannel channel = file.getChannel();</span><br><span class="line"></span><br><span class="line">        ByteBuffer buffer = ByteBuffer.allocate(32);</span><br><span class="line">        int len = 0;</span><br><span class="line">        while ((len = channel.read(buffer)) != -1) &#123;</span><br><span class="line">            buffer.flip();</span><br><span class="line">            System.out.println(new String(buffer.array(), buffer.position(), buffer.limit()-buffer.position(), StandardCharsets.UTF_8));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ByteBuffer wbuff = ByteBuffer.allocate(100);</span><br><span class="line">        wbuff.put(&quot;hello&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">        wbuff.flip(); //设置 limit为position, position为0，,避免将空元素数组也写入</span><br><span class="line">        channel.write(wbuff);</span><br><span class="line">        //也可以只写固定position开始的数据</span><br><span class="line">        //channel.write(wbuff, wbuff.position());</span><br><span class="line">        channel.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-
-<p>所以， 得到以下结论：</p>
-<ul>
-<li>二级缓存仅在写操作和rollback执行时， 清除缓存</li>
-<li>二级缓存只有在真正commit前， 才会写入缓存对象中</li>
-<li>cacheKey 仍然以被装饰的Executor的逻辑为主</li>
-<li>仅在本地服务中生效。</li>
-<li>可以通过在具体的mapper中指定namespace来确定缓存的范围，使用注解的话是 <em>@CacheNamespace</em>， 相同的namespace下命中的缓存才会生效</li>
-</ul>
-<p>故， 开启二级缓存需要考虑以下是否为集群服务和namespace两个因素的影响</p>
-<p>二级缓存的缺点已经很明显了，不适用于集群式环境和namespace不同但操作表相同的情况下， 脏数据出现的情况会很大。 对比起使用二级缓存， 直接使用redis等第三方缓存优势反而更大， 缺点就是需要投入精力去实现相应的缓存操作流程。</p>
+<h1 id="NIO选择器-selector"><a href="#NIO选择器-selector" class="headerlink" title="NIO选择器 selector"></a>NIO选择器 selector</h1><p>由于fileChannel不能直接切换到非阻塞模式，这要涉及到套接字socket连接了.</p>
+<p><em>TODO 整理后补充……</em></p>
 
         
     
@@ -581,7 +544,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2021/08/13/LiuxCheetSheet/" id="post_nav-newer" class="prev-content">
+        <a href="/2021/09/22/bloomFilter/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -595,7 +558,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2021/07/29/snowflake/" id="post_nav-older" class="next-content">
+        <a href="/2021/08/17/vueLearn/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
