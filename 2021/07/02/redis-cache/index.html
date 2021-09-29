@@ -240,7 +240,7 @@
 
     
         <meta property="article:published_time" content="Fri Jul 02 2021 17:06:21 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 12 2021 11:42:55 GMT+0800">
+        <meta property="article:modified_time" content="Wed Sep 29 2021 12:09:35 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -263,7 +263,7 @@
     "mainEntityOfPage": "https://leefvictor.github.io/2021/07/02/redis-cache/index.html",
     "headline": "redis 缓存讨论",
     "datePublished": "Fri Jul 02 2021 17:06:21 GMT+0800",
-    "dateModified": "Thu Aug 12 2021 11:42:55 GMT+0800",
+    "dateModified": "Wed Sep 29 2021 12:09:35 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -523,7 +523,7 @@
 <h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><p> 指所请求的数据不管是在底层还是在缓存层都没有命中数据， 同时这个请求也是一个热点请求数据时， 就会增大了数据库的查询压力</p>
 <p> <strong>通常解决办法</strong></p>
 <p> 将空值也作为一个值进行缓存</p>
-<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h3><p> 这也是一个高并发下的场景问题， 指的是缓存中没有数据（或者刚刚缓存失效了）， 但db层是有数据， 就会导致这部分的请求同时压到了db层去查询了。同时还伴随着可能相同请求重复写入缓存的问题点</p>
+<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h3><p> 一个高并发其服务是集群下的场景问题， 指的是缓存中没有数据（或者刚刚缓存失效了）， 但db层是有数据， 就会导致这部分的请求同时压到了db层去查询了， 还有可能多个实例同时接收并处理了这部分请求。同时还伴随着可能相同请求重复写入缓存的问题点</p>
 <p> <strong>通常解决办法</strong></p>
 <p> 加锁 （但并不是一个很好的办法）</p>
 <h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><p> 基本上， 是指一大批的缓存在同一个时间节点上过期了， 而这个节点又是在请求高峰期。 所以大量的请求打到了db上，会造成服务和数据库的性能断崖式下降</p>
@@ -554,7 +554,7 @@
 </li>
 </ol>
 <pre class="mermaid">graph TD
-A[请求] --> B[redis.get] --> C{is null}
+A[请求] --> B[redis.get] --> C{is not null}
 C -->|是| D[return]
 C -->|否| E[select db] --> F[redis.set]
 E --> D</pre>
