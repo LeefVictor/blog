@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.5 -->
+    <script>
+        window.materialVersion = "1.5.5"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Oauth2 认证的微服务架构 | 
+        
+        leefVictorBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/touxiang.png">
+    <link rel="icon" href="/img/touxiang.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",oauth2,用户验证,单点登录">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="leefVictorBlog">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/04/18/oauth2/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/touxiang.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://leefvictor.github.io/2021/04/18/oauth2/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Oauth2 认证的微服务架构 | leefVictorBlog">
+    <meta property="og:image" content="/img/touxiang.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="oauth2"> <meta property="og:article:tag" content="用户验证"> <meta property="og:article:tag" content="单点登录"> 
+
+    
+        <meta property="article:published_time" content="Sun Apr 18 2021 16:12:55 GMT+0800">
+        <meta property="article:modified_time" content="Sun Oct 10 2021 16:39:32 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://leefvictor.github.io/2021/04/18/oauth2/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/04/18/oauth2/index.html",
+    "headline": "Oauth2 认证的微服务架构",
+    "datePublished": "Sun Apr 18 2021 16:12:55 GMT+0800",
+    "dateModified": "Sun Oct 10 2021 16:39:32 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "leefVictor",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/main.gif"
+        },
+        "description": "We knew nothing, and we will knowing anything"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "leefVictorBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/touxiang.png"
+        }
+    },
+    "keywords": ",oauth2,用户验证,单点登录",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Oauth2-0"><span class="post-toc-number">1.</span> <span class="post-toc-text">Oauth2.0</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Oauth2%E7%9A%84%E8%AE%A4%E8%AF%81%E6%B5%81%E7%A8%8B"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Oauth2的认证流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8E%88%E6%9D%83%E7%A0%81%E6%A8%A1%E5%BC%8F-%E4%BB%A5%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95%E4%B8%BA%E4%BE%8B-%EF%BC%9A"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">授权码模式(以扫码登录为例)：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">客户端模式：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">一些概念</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%A8%A1%E5%9D%97%E5%88%97%E8%A1%A8"><span class="post-toc-number">2.</span> <span class="post-toc-text">模块列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">授权服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">基本功能</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">资源服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">资源服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#web%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">web管理服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%87%B3%E6%AD%A4%EF%BC%8C-%E5%86%85%E9%83%A8%E7%9A%84%E4%BD%93%E7%B3%BB%E5%B7%B2%E5%AE%8C%E6%88%90"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">至此， 内部的体系已完成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%95%86"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">外部服务商</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%AF%E6%89%A9%E5%B1%95%E7%82%B9"><span class="post-toc-number">3.</span> <span class="post-toc-text">可扩展点</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 26 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Oauth2 认证的微服务架构
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/main.gif" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>leefVictor</strong>
+        <span>4月 18, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/oauth2/" rel="tag">oauth2</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="tag">单点登录</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" rel="tag">用户验证</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Oauth2 认证的微服务架构&url=https://leefvictor.github.io/2021/04/18/oauth2/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Oauth2 认证的微服务架构&url=https://leefvictor.github.io/2021/04/18/oauth2/index.html&via=leefVictor" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/04/18/oauth2/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/04/18/oauth2/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>搭建一个以oauth2.0作为授权机制的项目架构demo。<br>具体职能：  </p>
+<ul>
+<li>内部产品可通过单点登录实现联通</li>
+<li>外部产品可通过申请client实现调用</li>
+<li>外部产品访问需要用户手动确认授权， 内部则不需要</li>
+<li>内部产品的资源可以互相调度，但仍要求有验证操作</li>
+<li>授权服务器和资源服务器独立部署， 资源服务器如果有web管理端， 也将资源服务器分为 web微服务和资源微服务</li>
+</ul>
+<p>首先， 先来了解一些基本的概念</p>
+<h1 id="Oauth2-0"><a href="#Oauth2-0" class="headerlink" title="Oauth2.0"></a>Oauth2.0</h1><p>仅描述</p>
+<ul>
+<li>授权码模式（authorization code）</li>
+<li>客户端模式（client credentials）</li>
+</ul>
+<p>见贤思齐， 微信和支付宝对外的用户验证都是使用授权码模式的， 所以password这种需要给第三方自己用户和密码的模式就直接忽略。（第三方网站使用google和github登录其实也是授权码模式）</p>
+<p>而通常， 对外接口分为两种， 一种是需要获取体系内的用户， 另一种则是接入方的数据。比如公司A的公众号 接入微信， 那么A的公众号就是以clientId去访问微信的资源。涉及到用户操作时（比如支付）就需要用户点击确认（即授权）是前者； 如果是仅仅获取公众号自身的数据（关注列表这些）， 并没有用户参与的， 就是后者。</p>
+<h2 id="Oauth2的认证流程"><a href="#Oauth2的认证流程" class="headerlink" title="Oauth2的认证流程"></a>Oauth2的认证流程</h2><h3 id="授权码模式-以扫码登录为例-："><a href="#授权码模式-以扫码登录为例-：" class="headerlink" title="授权码模式(以扫码登录为例)："></a>授权码模式(以扫码登录为例)：</h3><p><strong>大致流程图</strong></p>
+<pre class="mermaid">sequenceDiagram
+    participant U as 用户
+    participant other as 第三方（公众号的服务）
+    participant R as 资源服务器（微信）
+    participant Auth as 认证服务器（微信）
+
+    U->>other: 访问，需要让用户登录
+    other->>U: 重定向到授权请求的页面， 用户进行授权操作
+
+    U-->>Auth: 确认授权，请求发送到wx授权服务，
+    Auth-->>other: 认证通过后带上code 再度重定向第三方的回调地址
+
+    other-->>Auth: 通过code获取到用户的token
+
+    other-->>R: 获取用户信息
+
+    other->>U: 完成登录</pre>
+
+<p>使用于获取用户信息的服务模块， 比如微信公众号的允许登录就是。</p>
+<h3 id="客户端模式："><a href="#客户端模式：" class="headerlink" title="客户端模式："></a>客户端模式：</h3><p><strong>大致流程</strong></p>
+<pre class="mermaid">sequenceDiagram
+    participant other as 第三方（公众号的服务）
+    participant R as 资源服务器（微信）
+    participant Auth as 认证服务器（微信）
+
+    
+    other->>Auth: 直接请求/oauth/token?grant_type=client_credentials
+
+    Auth-->>other: 返回Principal给第三方
+
+    other-->>R: 调用目标接口</pre>
+
+<p>常见于获取调用者自身在服务方的数据。</p>
+<h3 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h3><ul>
+<li><p>resourceId： 此client可访问的资源列表，可以和scope 二选一， 其实他们并么有固定的含义， 具体用法要看自己场景</p>
+</li>
+<li><p>scope: 作用域限制，请求资源作用域，用于限制客户端与用户无法访问没有作用域的资源; 比如微信的scope就是指定一个范围， 比如用户详细信息， 钉钉的部门信息，部门操作等等。 即限制client访问的范围, 在分布式服务中的各微服务实例</p>
+</li>
+</ul>
+<h1 id="模块列表"><a href="#模块列表" class="headerlink" title="模块列表"></a>模块列表</h1><p>总览：</p>
+<p><img src="/images/oauth2%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="jiagoutu"></p>
+<p>技术框架：</p>
+<ul>
+<li>spring-boot-web 2.5.5.RELEASE</li>
+<li>nacos-discovery 2.2.5.RELEASE</li>
+<li>security-oauth2-autoconfigure</li>
+</ul>
+<h2 id="授权服务器"><a href="#授权服务器" class="headerlink" title="授权服务器"></a>授权服务器</h2><h3 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h3><ul>
+<li>管理client配置 （可实例化于数据库， 也可以持久化在nacos 配置中心）</li>
+<li>获取accessToken</li>
+<li>授权确认功能</li>
+</ul>
+<p><strong>授权服务器配置</strong></p>
+<p>授权服务器的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">@EnableAuthorizationServer</span><br><span class="line">@Configuration</span><br><span class="line">public class AuthServerConfigure extends AuthorizationServerConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    private PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();</span><br><span class="line"></span><br><span class="line">    private final AuthorizationEndpoint authorizationEndpoint;</span><br><span class="line"></span><br><span class="line">    private final AuthenticationManager authenticationManager;</span><br><span class="line"></span><br><span class="line">    public AuthServerConfigure(AuthenticationManager authenticationManager,</span><br><span class="line">                               @Lazy AuthorizationEndpoint authorizationEndpoint) &#123;//lazy 解决循环依赖的问题</span><br><span class="line">        this.authenticationManager = authenticationManager;</span><br><span class="line">        this.authorizationEndpoint = authorizationEndpoint;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @PostConstruct</span><br><span class="line">    public void init()&#123;</span><br><span class="line">        authorizationEndpoint.setUserApprovalPage(&quot;forward:/oauth/confirm&quot;);</span><br><span class="line">        authorizationEndpoint.setErrorPage(&quot;forward:/oauth/error&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configure(ClientDetailsServiceConfigurer clients) throws Exception &#123;</span><br><span class="line">        //demo 直接使用内存模式</span><br><span class="line"></span><br><span class="line">        //第三方的配置client, 仅提供授权码和刷新token模式</span><br><span class="line">        clients.inMemory().withClient(&quot;open_client&quot;)</span><br><span class="line">                .resourceIds(&quot;foo&quot;)</span><br><span class="line">                .authorizedGrantTypes(&quot;authorization_code&quot;, &quot;refresh_token&quot;, &quot;client_credentials&quot;)</span><br><span class="line">                .redirectUris(&quot;http://localhost:8083/auth/code&quot;)//带上code重定向到资源服务器, 可多个的</span><br><span class="line">                .scopes(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)</span><br><span class="line">                .authorities(&quot;READ&quot;)</span><br><span class="line">                .secret(encoder.encode(&quot;123456&quot;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                .and()</span><br><span class="line"></span><br><span class="line">                 //内部产品的配置client, 提供授权码（web管理端），客户端模式（资源端）和刷新token模式</span><br><span class="line">                .withClient(&quot;resource_client&quot;)</span><br><span class="line">                .authorizedGrantTypes(&quot;authorization_code&quot;,&quot;client_credentials&quot;, &quot;refresh_token&quot;)</span><br><span class="line">                .resourceIds(&quot;foo&quot;)</span><br><span class="line">                .scopes(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;)</span><br><span class="line">                .authorities(&quot;READ&quot;)</span><br><span class="line">                .secret(encoder.encode(&quot;123456&quot;)).autoApprove(true)//开启， 这个client不需要到授权页， 因为是内部的产品， 不需要再经过用户确认授权</span><br><span class="line">                </span><br><span class="line">                .redirectUris(&quot;http://localhost:8086/login&quot;)//带上code重定向到资源服务器, 可多个的</span><br><span class="line">        ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception &#123;</span><br><span class="line">        endpoints</span><br><span class="line">                //.authenticationManager(authenticationManager) //支持password授权模式</span><br><span class="line">                .tokenStore(new InMemoryTokenStore())</span><br><span class="line">                .reuseRefreshTokens(true);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception &#123;</span><br><span class="line">        //允许表单认证</span><br><span class="line">        oauthServer.passwordEncoder(encoder);</span><br><span class="line">        oauthServer.allowFormAuthenticationForClients().checkTokenAccess(&quot;isAuthenticated()&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接口权限校验的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@EnableWebSecurity</span><br><span class="line">@Configuration</span><br><span class="line">public class SecurityConfigure extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line">    private PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    @Override</span><br><span class="line">    public AuthenticationManager authenticationManagerBean() throws Exception &#123;</span><br><span class="line">        return super.authenticationManagerBean();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;</span><br><span class="line">        //demo 使用内存模式， 建两个用户存在内存</span><br><span class="line">        auth.inMemoryAuthentication().passwordEncoder(encoder)</span><br><span class="line">                .withUser(&quot;user1&quot;)</span><br><span class="line">                .password(encoder.encode(&quot;123456&quot;))</span><br><span class="line">                .roles(&quot;READ&quot;)</span><br><span class="line">                .and()</span><br><span class="line">                .withUser(&quot;user2&quot;).password(encoder.encode(&quot;123456&quot;))</span><br><span class="line">                .authorities(&quot;READ&quot;)</span><br><span class="line">        ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        //开放部分接口</span><br><span class="line">        http.authorizeRequests()</span><br><span class="line">                .antMatchers(&quot;/oauth/**&quot;,&quot;/login/**&quot;, &quot;/logout&quot;).permitAll()</span><br><span class="line">                .anyRequest().authenticated()   // 其他地址的访问均需验证</span><br><span class="line">                .and()</span><br><span class="line">                .formLogin().permitAll().and().httpBasic();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>启动服务， 浏览器打开 <a target="_blank" rel="noopener" href="http://localhost:8080/oauth/authorize?response_type=code&amp;redirect_uri=http://localhost:8086/login&amp;client_id=resource_client">http://localhost:8080/oauth/authorize?response_type=code&amp;redirect_uri=http://localhost:8086/login&amp;client_id=resource_client</a> 可得以下结果：</p>
+<ol>
+<li><p>重定向到登录页<br><img src="/images/authlogin.png" alt="重定向"></p>
+</li>
+<li><p>登录成功后</p>
+<ol>
+<li><p>如果该client id开启了 autoApprove (见上面配置类)<br><img src="/images/coderedirect.png" alt="codedd"></p>
+</li>
+<li><p>如果没开启， 则需要进行手动确认后才能获得code<br><img src="/images/approve.png" alt="approve"></p>
+</li>
+</ol>
+</li>
+<li><p>用code去换取accessToken<br><img src="/images/codewraptoken.png" alt="huantoken"></p>
+</li>
+</ol>
+<h2 id="资源服务器"><a href="#资源服务器" class="headerlink" title="资源服务器"></a>资源服务器</h2><h3 id="资源服务"><a href="#资源服务" class="headerlink" title="资源服务"></a>资源服务</h3><p>仅着重对外的接口提供服务， 包括它对应的web服务。 实际上它就是一个先校验token， 再校验 client的scope， 然后是 用户的角色权限， 最后决定是否响应接口的服务</p>
+<p><strong>资源配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">@EnableResourceServer</span><br><span class="line">public class ResourceConfiguration extends ResourceServerConfigurerAdapter &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void configure(ResourceServerSecurityConfigurer resources) throws Exception &#123;</span><br><span class="line">        resources.resourceId(&quot;foo&quot;); //当前资源的标识， 和client配置对应</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public RestTemplate restTemplate()&#123;</span><br><span class="line">        return new RestTemplateBuilder().build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public PasswordEncoder passwordEncoder() &#123;</span><br><span class="line">        return new BCryptPasswordEncoder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Primary</span><br><span class="line">    @Bean //做token验证的， 因为资源服务和授权服务不是同一个实例， 所以需要这么一个远程服务去校验传入的pricipal</span><br><span class="line">    public RemoteTokenServices remoteTokenServices() &#123;</span><br><span class="line">        final RemoteTokenServices tokenServices = new RemoteTokenServices();</span><br><span class="line">        //设置授权服务器check_token端点完整地址</span><br><span class="line">        tokenServices.setCheckTokenEndpointUrl(&quot;http://localhost:8080/oauth/check_token&quot;;</span><br><span class="line">        //设置客户端id与secret，注意：这里不需要使用passwordEncoder加密！</span><br><span class="line">        tokenServices.setClientId(&quot;resource_client&quot;);</span><br><span class="line">        tokenServices.setClientSecret(&quot;123456&quot;);</span><br><span class="line">        return tokenServices;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.authorizeRequests().antMatchers(&quot;/auth/code&quot;).permitAll().anyRequest().authenticated(); // 所有请求都需要验证</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//mock两个接口， </span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class FooController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/get&quot;)</span><br><span class="line">    public String get(Principal principal)&#123;</span><br><span class="line"></span><br><span class="line">        OAuth2Authentication authentication = (OAuth2Authentication) principal;</span><br><span class="line"></span><br><span class="line">        authentication.getOAuth2Request().getScope(); //可资源校验</span><br><span class="line"></span><br><span class="line">        authentication.getOAuth2Request().getResourceIds();//可资源校验</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return &quot;foo&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //用于web端的单点登录， 就是一个根据accessToken返回用户的接口</span><br><span class="line">    @GetMapping(&quot;/userInfo&quot;)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public Principal userInfo(Principal principal) &#123;</span><br><span class="line">        return principal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>此时， 如果用刚才得到的accessToken访问 这个get接口， 可得到响应：</p>
+<p><img src="/images/resourceresult.png" alt="resourcerr"></p>
+<h3 id="web管理服务"><a href="#web管理服务" class="headerlink" title="web管理服务"></a>web管理服务</h3><p>仅着重web页面上的操作， 需要单点登录功能<br>这里的重点是单点登录功能</p>
+<p>先是配置类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">@EnableOAuth2Sso</span><br><span class="line">@Configuration</span><br><span class="line">public class ClientConfiguration extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.antMatcher(&quot;/**&quot;)</span><br><span class="line">                .authorizeRequests()</span><br><span class="line">                .antMatchers(&quot;/&quot;, &quot;/login&quot;).permitAll()</span><br><span class="line">                .anyRequest()</span><br><span class="line">                .authenticated()</span><br><span class="line">                .and().formLogin().permitAll().and().csrf().disable()</span><br><span class="line">        ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//mock一个接口</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class ClientController &#123;</span><br><span class="line"></span><br><span class="line">    private final LoadBalancerClient loadBalancerClient;</span><br><span class="line"></span><br><span class="line">    private final RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    public ClientController(RestTemplate restTemplate, LoadBalancerClient loadBalancerClient) &#123;</span><br><span class="line">        this.restTemplate = restTemplate;</span><br><span class="line">        this.loadBalancerClient = loadBalancerClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/get&quot;)</span><br><span class="line">    public String get(Principal principal)&#123;</span><br><span class="line"></span><br><span class="line">        //用当前的用户凭证去其他资源服务器调用接口， </span><br><span class="line"></span><br><span class="line">        ServiceInstance serviceInstance = loadBalancerClient.choose(&quot;foo_resource&quot;);</span><br><span class="line">        return restTemplate.postForEntity(String.format(&quot;http://%s:%s/get&quot;, serviceInstance.getHost(), serviceInstance.getPort()), withToken(principal), String.class).getBody();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private HttpEntity&lt;MultiValueMap&lt;String, String&gt;&gt; withToken(Principal principal)&#123;</span><br><span class="line">        String token = ((OAuth2AuthenticationDetails) ((OAuth2Authentication) principal).getDetails()).getTokenValue();</span><br><span class="line">        HttpHeaders headers = new HttpHeaders();</span><br><span class="line">        headers.add(&quot;Authorization&quot;, &quot;Bearer &quot; + token);</span><br><span class="line">        return new HttpEntity&lt;&gt;(null, headers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后是<em>配置文件</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">spring.cloud.nacos.discovery.server-addr=192.168.31.12:8848</span><br><span class="line">spring.cloud.nacos.discovery.namespace=10335498-868d-4fe1-a71b-b5dfada222c2</span><br><span class="line">spring.application.name=in_client</span><br><span class="line"></span><br><span class="line"># 主要是这里</span><br><span class="line">security.oauth2.client.client-id=resource_client</span><br><span class="line">security.oauth2.client.client-secret=123456</span><br><span class="line"># 获取token的uri</span><br><span class="line">security.oauth2.client.access-token-uri=http://localhost:8080/oauth/token</span><br><span class="line"># 获取code的uri</span><br><span class="line">security.oauth2.client.user-authorization-uri=http://localhost:8080/oauth/authorize</span><br><span class="line"></span><br><span class="line"># 获取用户凭证信息的uri， 也就是上面resource的userInfo接口</span><br><span class="line">security.oauth2.resource.user-info-uri=http://localhost:8082/userInfo</span><br><span class="line"></span><br><span class="line">spring.main.allow-bean-definition-overriding=true</span><br><span class="line"></span><br><span class="line">security.basic.enabled=false</span><br><span class="line">server.servlet.session.cookie.name=LFSESSIONID</span><br><span class="line">server.servlet.session.cookie.domain=localhost</span><br><span class="line">server.servlet.session.cookie.path=/</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>启动服务。</p>
+<p>此时， 如果在浏览器上是已登录状态， 那么直接访问 localhost:8086/get是可以得到响应结果的， 也就是单点登录成功。 否则还是需要进行一步登录操作。</p>
+<p><img src="/images/8086.png" alt="8086png"></p>
+<p>（这里的单点登录仍是在一个session会话中生效， 记住登录状态的功能需要额外实现， 不过大体就是cookie 和 session的配置问题）</p>
+<h2 id="至此，-内部的体系已完成"><a href="#至此，-内部的体系已完成" class="headerlink" title="至此， 内部的体系已完成"></a>至此， 内部的体系已完成</h2><h2 id="外部服务商"><a href="#外部服务商" class="headerlink" title="外部服务商"></a>外部服务商</h2><p>这其实就是一个http请求的问题， 仍是使用和内部web管理一样的流程， 只不过多了一个用户确认的操作。要做的仅仅是写一个回调接口， 接收code并自动获取和保存token的操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class OpenController &#123;</span><br><span class="line"></span><br><span class="line">    //注：这里是为了方便，才将其作为bean的属性，实际项目中不要这么做</span><br><span class="line">    private String accessToken;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    private final RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    public OpenController(RestTemplate restTemplate) &#123;</span><br><span class="line">        this.restTemplate = restTemplate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //对用户授权完毕后的回调接口进行处理，并保存token</span><br><span class="line">    @RequestMapping(&quot;/auth/code&quot;)</span><br><span class="line">    public String login(@RequestParam String code) &#123;</span><br><span class="line">        String url = &quot;http://localhost:8080/oauth/token&quot;;</span><br><span class="line"></span><br><span class="line">        HttpHeaders httpHeaders = new HttpHeaders();</span><br><span class="line"></span><br><span class="line">        httpHeaders.add(&quot;Authorization&quot;, &quot;Basic b3Blbl9jbGllbnQ6MTIzNDU2&quot;);</span><br><span class="line"></span><br><span class="line">        MultiValueMap&lt;String, String&gt; map = new LinkedMultiValueMap&lt;&gt;();</span><br><span class="line">        map.put(&quot;grant_type&quot;, Collections.singletonList(&quot;authorization_code&quot;));</span><br><span class="line">        map.put(&quot;redirect_uri&quot;, Collections.singletonList(&quot;http://localhost:8083/auth/code&quot;));</span><br><span class="line">        map.put(&quot;code&quot;, Collections.singletonList(code));</span><br><span class="line"></span><br><span class="line">        HttpEntity&lt;MultiValueMap&lt;String, String&gt;&gt; entity = new HttpEntity&lt;&gt;(map, httpHeaders);</span><br><span class="line"></span><br><span class="line">        ResponseEntity&lt;String&gt; response = restTemplate.postForEntity(url, entity, String.class);</span><br><span class="line"></span><br><span class="line">        System.out.println(response.getBody());</span><br><span class="line"></span><br><span class="line">        JSONObject obj = JSON.parseObject(response.getBody());</span><br><span class="line">        accessToken = obj.getString(&quot;access_token&quot;);</span><br><span class="line"></span><br><span class="line">        return response.getBody();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //获取资源是， 带上token</span><br><span class="line">    @RequestMapping(&quot;/get&quot;)</span><br><span class="line">    public String get()&#123;</span><br><span class="line">        String url = &quot;http://localhost:8082/get&quot;;</span><br><span class="line"></span><br><span class="line">        HttpHeaders httpHeaders = new HttpHeaders();</span><br><span class="line"></span><br><span class="line">        httpHeaders.add(&quot;Authorization&quot;, &quot;Bearer &quot;+accessToken);</span><br><span class="line"></span><br><span class="line">        MultiValueMap&lt;String, String&gt; map = new LinkedMultiValueMap&lt;&gt;();</span><br><span class="line">        HttpEntity&lt;MultiValueMap&lt;String, String&gt;&gt; entity = new HttpEntity&lt;&gt;(map, httpHeaders);</span><br><span class="line"></span><br><span class="line">        ResponseEntity&lt;String&gt; response = restTemplate.postForEntity(url, entity, String.class);</span><br><span class="line">        return response.getBody();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>所以， 当用户发起要访问资源服务器的get接口时， 跳转到授权确认页：</p>
+<p><img src="/images/approve1.png" alt="approve1"></p>
+<p>用户确认后， 回调接口处理</p>
+<p><img src="/images/codedeal.png" alt="codedeal"></p>
+<p>访问资源</p>
+<p><img src="/images/8083get.png" alt="8083get"></p>
+<h1 id="可扩展点"><a href="#可扩展点" class="headerlink" title="可扩展点"></a>可扩展点</h1><ol>
+<li>授权服务器的client配置可以持久化到db， 也可以持久化为nacos的配置</li>
+<li>扩展为集群时， 可在nacos中配置权重来进行负载均衡， 同时将授权服务的token变为redis</li>
+<li>资源服务器和web端都可将配置文件迁移到nacos配置中心</li>
+<li>单点登录作用可在浏览器端而不是会话</li>
+</ol>
+<p><a href="">项目代码地址</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/04/27/dynamic-code/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/03/12/codingavoid/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/24560998.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/main.gif" alt="leefVictor's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        tano254690663@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/09/">九月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;leefVictorBlog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({startOnLoad:true});
+        }
+    </script>
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.5 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":250,"height":420},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+    
+</html>
