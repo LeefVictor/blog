@@ -44,7 +44,7 @@
     
     <title>
         
-            LiuxCheetSheet | 
+            springsecurity 功能点复习已经构建一个基本的自定义用户登录demo | 
         
         leefVictorBlog
     </title>
@@ -55,7 +55,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",VIM,Linux,小抄">
+    <meta name="keywords" content=",spring security,用户登录,自定义登录">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -216,7 +216,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="leefVictorBlog">
-    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/">
+    <meta name="msapplication-starturl" content="https://leefvictor.github.io/2021/08/18/springsecurity/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="leefVictorBlog">
@@ -231,16 +231,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/">
+    <meta property="og:url" content="https://leefvictor.github.io/2021/08/18/springsecurity/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="LiuxCheetSheet | leefVictorBlog">
+    <meta property="og:title" content="springsecurity 功能点复习已经构建一个基本的自定义用户登录demo | leefVictorBlog">
     <meta property="og:image" content="/img/touxiang.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="VIM"> <meta property="og:article:tag" content="Linux"> <meta property="og:article:tag" content="小抄"> 
+    <meta property="og:article:tag" content="spring security"> <meta property="og:article:tag" content="用户登录"> <meta property="og:article:tag" content="自定义登录"> 
 
     
-        <meta property="article:published_time" content="Fri Aug 13 2021 16:57:53 GMT+0800">
-        <meta property="article:modified_time" content="Mon Aug 16 2021 15:11:41 GMT+0800">
+        <meta property="article:published_time" content="Wed Aug 18 2021 17:33:23 GMT+0800">
+        <meta property="article:modified_time" content="Mon Oct 11 2021 18:33:09 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -248,7 +248,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/index.html" />
+        <link rel="canonical" href="https://leefvictor.github.io/2021/08/18/springsecurity/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -260,10 +260,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/index.html",
-    "headline": "LiuxCheetSheet",
-    "datePublished": "Fri Aug 13 2021 16:57:53 GMT+0800",
-    "dateModified": "Mon Aug 16 2021 15:11:41 GMT+0800",
+    "mainEntityOfPage": "https://leefvictor.github.io/2021/08/18/springsecurity/index.html",
+    "headline": "springsecurity 功能点复习已经构建一个基本的自定义用户登录demo",
+    "datePublished": "Wed Aug 18 2021 17:33:23 GMT+0800",
+    "dateModified": "Mon Oct 11 2021 18:33:09 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "leefVictor",
@@ -281,7 +281,7 @@
             "url": "/img/touxiang.png"
         }
     },
-    "keywords": ",VIM,Linux,小抄",
+    "keywords": ",spring security,用户登录,自定义登录",
     "description": "",
 }
 </script>
@@ -347,7 +347,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#VIM"><span class="post-toc-number">1.</span> <span class="post-toc-text">VIM</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%88%E6%90%AD%E5%BB%BAspring-web-security%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="post-toc-number">1.</span> <span class="post-toc-text">先搭建spring web+security的项目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89User%E5%B1%9E%E6%80%A7%E7%BB%93%E6%9E%84"><span class="post-toc-number">2.</span> <span class="post-toc-text">定义User属性结构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#security%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="post-toc-number">3.</span> <span class="post-toc-text">security的配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3"><span class="post-toc-number">4.</span> <span class="post-toc-text">写自定义接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#debug"><span class="post-toc-number">5.</span> <span class="post-toc-text">debug</span></a></li></ol>
     </ul>
     
 
@@ -379,7 +379,7 @@
         
     
             <p class="article-headline-p">
-                LiuxCheetSheet
+                springsecurity 功能点复习已经构建一个基本的自定义用户登录demo
             </p>
         </div>
 
@@ -398,7 +398,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>leefVictor</strong>
-        <span>8月 13, 2021</span>
+        <span>8月 18, 2021</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -422,7 +422,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-none-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/VIM/" rel="tag">VIM</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E5%B0%8F%E6%8A%84/" rel="tag">小抄</a>
+        <a class="post_tag-none-link" href="/tags/spring-security/" rel="tag">spring security</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="tag">用户登录</a></li><li class="mdl-menu__item"><a class="post_tag-none-link" href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%99%BB%E5%BD%95/" rel="tag">自定义登录</a>
     </ul>
     
 
@@ -439,7 +439,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LiuxCheetSheet&url=https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=springsecurity 功能点复习已经构建一个基本的自定义用户登录demo&url=https://leefvictor.github.io/2021/08/18/springsecurity/index.html&pic=https://leefvictor.github.io/img/touxiang.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -448,7 +448,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LiuxCheetSheet&url=https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/index.html&via=leefVictor" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=springsecurity 功能点复习已经构建一个基本的自定义用户登录demo&url=https://leefvictor.github.io/2021/08/18/springsecurity/index.html&via=leefVictor" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -457,7 +457,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://leefvictor.github.io/2021/08/18/springsecurity/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -466,7 +466,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/08/13/LiuxCheetSheet/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://leefvictor.github.io/2021/08/18/springsecurity/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -491,7 +491,82 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h1>
+        <p>主要目的是脱离security本身的表单登录和登录处理逻辑， 毕竟登录过程是可能增加验证码等其他操作的。因为设计到表单的传值改变， 所以不能使用原有的处理+loginSuccessForward的方式。</p>
+<p>所以， 就是将框架原有的 </p>
+<ul>
+<li>前后端不分离的表单提交</li>
+<li>使用userDetailService + userDetail对象</li>
+<li>增加登录表单属性需要自定义过多的bean， 比如AuthentionProvider， UserDetailService等等</li>
+</ul>
+<p>更改为</p>
+<ul>
+<li>前后端分离， 前端表单可灵活扩展， 后端api和框架解耦， 参数和处理逻辑灵活扩展</li>
+<li>不需要去管UserDetailxxx的模块</li>
+<li>登录逻辑的更改不需要考虑过多框架接口</li>
+</ul>
+<p>先确定一下用户的角色权限架构， 如下： </p>
+<p><img src="/images/userrolepermission.png" alt="userrolepermission"></p>
+<h1 id="先搭建spring-web-security的项目"><a href="#先搭建spring-web-security的项目" class="headerlink" title="先搭建spring web+security的项目"></a>先搭建spring web+security的项目</h1><p><a target="_blank" rel="noopener" href="https://github.com/LeefVictor/ZBlogTemplate/tree/main/securitydemo">demo代码</a></p>
+<h1 id="定义User属性结构"><a href="#定义User属性结构" class="headerlink" title="定义User属性结构"></a>定义User属性结构</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class MyUserDetails &#123;</span><br><span class="line">    </span><br><span class="line">    private String userName;</span><br><span class="line">    </span><br><span class="line">    private List&lt;String&gt; roles;</span><br><span class="line"></span><br><span class="line">    private List&lt;String&gt; permissions;</span><br><span class="line"></span><br><span class="line">    public String getUserName() &#123;</span><br><span class="line">        return userName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyUserDetails setUserName(String userName) &#123;</span><br><span class="line">        this.userName = userName;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List&lt;String&gt; getRoles() &#123;</span><br><span class="line">        return roles;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyUserDetails setRoles(List&lt;String&gt; roles) &#123;</span><br><span class="line">        this.roles = roles;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List&lt;String&gt; getPermissions() &#123;</span><br><span class="line">        return permissions;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyUserDetails setPermissions(List&lt;String&gt; permissions) &#123;</span><br><span class="line">        this.permissions = permissions;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    public List&lt;GrantedAuthority&gt; toSecurityAuthority()&#123;</span><br><span class="line">        return roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="security的配置"><a href="#security的配置" class="headerlink" title="security的配置"></a>security的配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@EnableWebSecurity</span><br><span class="line">@EnableGlobalMethodSecurity(prePostEnabled = true) //开启@PreAuthorize权限注解</span><br><span class="line">@Configuration</span><br><span class="line">public class SecurityConf extends WebSecurityConfigurerAdapter &#123;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;user.user1.id&#125;&quot;)</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public PasswordEncoder passwordEncoder() &#123;</span><br><span class="line">        return new BCryptPasswordEncoder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //因为需要使用hasPermissions() spel表达式， 所以需要自定义一个权限 Evaluator</span><br><span class="line">    @Bean</span><br><span class="line">    public DefaultWebSecurityExpressionHandler defaultWebSecurityExpressionHandler(MyPermissionEvl myPermissionEvl)&#123;</span><br><span class="line">        DefaultWebSecurityExpressionHandler defaultWebSecurityExpressionHandler = new DefaultWebSecurityExpressionHandler();</span><br><span class="line">        defaultWebSecurityExpressionHandler.setPermissionEvaluator(myPermissionEvl);</span><br><span class="line">        return defaultWebSecurityExpressionHandler;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* 由于完全使用自己的登录逻辑， 就不需要去配置此项</span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;</span><br><span class="line">        auth</span><br><span class="line">                .userDetailsService(xx);</span><br><span class="line">    &#125;*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void configure(HttpSecurity http) throws Exception &#123;</span><br><span class="line">        http.authorizeRequests().antMatchers(&quot;/myLogin&quot;,&quot;/error&quot;).permitAll().anyRequest().authenticated()</span><br><span class="line">                .and().formLogin()</span><br><span class="line">                .loginPage(&quot;/login.html&quot;)</span><br><span class="line">                .loginProcessingUrl(&quot;/myLogin&quot;)</span><br><span class="line">                .failureForwardUrl(&quot;/error&quot;)</span><br><span class="line">                .permitAll().and().logout().logoutUrl(&quot;/myLogout&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">被@PreAuthorize(&quot;hasPermission(#myUserDetails, &#x27;购买功能&#x27;)&quot;)注解的接口会到这里处理</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class MyPermissionEvl implements PermissionEvaluator &#123;</span><br><span class="line"></span><br><span class="line">    //我们固定传入的就是session中用户信息，然后校验其permissions的属性匹配与否</span><br><span class="line">    @Override</span><br><span class="line">    public boolean hasPermission(Authentication authentication, Object targetDomainObject, Object permission) &#123;</span><br><span class="line">        if (!(permission instanceof String)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        //自定义permission的匹配</span><br><span class="line">        return ((MyUserDetails)targetDomainObject).getPermissions().contains(permission);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean hasPermission(Authentication authentication, Serializable targetId, String targetType, Object permission) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="写自定义接口"><a href="#写自定义接口" class="headerlink" title="写自定义接口"></a>写自定义接口</h1><p>@RestController<br>@RefreshScope<br>public class DemoController {</p>
+<pre><code>@RequestMapping(&quot;/myLogin&quot;)
+public String login(HttpSession session,
+                    String username,
+                    String password
+        , HttpServletResponse response) throws IOException &#123;
+    //写死用于demo测试
+    if (username.equals(&quot;user1&quot;) &amp;&amp; password.equals(&quot;123456&quot;)) &#123;
+        MyUserDetails userDetails = new MyUserDetails();
+        userDetails.setUserName(username)
+                .setRoles(ImmutableList.of(&quot;READ&quot;, &quot;WRITE&quot;))
+                .setPermissions(ImmutableList.of(&quot;菜单1&quot;, &quot;表单2&quot;, &quot;购买功能&quot;));
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(username, password, userDetails.toSecurityAuthority());
+        authentication.setDetails(userDetails);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        session.setAttribute(&quot;userDetail&quot;, userDetails);
+
+        return &quot;success&quot;;
+    &#125;
+
+    return &quot;fail&quot;;
+&#125;
+
+
+@RequestMapping(&quot;myLogout&quot;)
+public String logout(HttpServletRequest request) throws ServletException &#123;
+    //直接清除掉session和securityContext的内容
+    request.logout();
+    return &quot;success&quot;;
+&#125;
+
+
+@PreAuthorize(&quot;hasAuthority(&#39;WRITE&#39;)&quot;)
+@RequestMapping(&quot;write&quot;)
+public String write(Principal principal) &#123;
+    return &quot;Done&quot;;
+&#125;
+
+
+@PreAuthorize(&quot;hasPermission(#myUserDetails, &#39;购买功能&#39;)&quot;)
+@RequestMapping(&quot;buy&quot;)
+public String buy(@SessionAttribute(&quot;userDetail&quot;) MyUserDetails myUserDetails) &#123;
+    return &quot;Done&quot;;
+&#125;
+</code></pre>
+<p>}</p>
+<h1 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h1><p>postman 分别执行 </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://localhost:8087/myLogin?username=user1&amp;password=123456">http://localhost:8087/myLogin?username=user1&amp;password=123456</a></li>
+<li><a target="_blank" rel="noopener" href="http://localhost:8087/write">http://localhost:8087/write</a></li>
+<li><a target="_blank" rel="noopener" href="http://localhost:8087/myLogout">http://localhost:8087/myLogout</a></li>
+</ul>
+<p>可查看结果， 权限控制的可更改 PreAuthorize的值进行观察。</p>
+
         
     
 
@@ -511,7 +586,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2021/08/17/vueLearn/" id="post_nav-newer" class="prev-content">
+        <a href="/2021/08/23/IoNio/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -525,7 +600,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2021/07/30/mybatis-cache/" id="post_nav-older" class="next-content">
+        <a href="/2021/08/17/vueLearn/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
